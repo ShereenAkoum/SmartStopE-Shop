@@ -1,0 +1,4 @@
+.item {
+  height: 210px; /* Adjust the height as per your requirement */
+  overflow: hidden; /* Hide overflowing content */
+}
