@@ -1,0 +1,1508 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{
+        color: white;
+        background-color: gray;
+    }
+    table{
+        width: 100%;
+        max-width: 100vw;
+    }
+    .img{
+        height: 80px;
+        max-width: 80px;
+        object-fit: cover;
+    }
+    .tap-image{
+        position: fixed;
+        top: 2%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto;
+        transition: width 2s;
+        display: none; 
+        height: 20px;
+        background-color: #514D4D;
+        text-align: center;
+        width: 100%;
+        font-size: large;
+        font-weight: bold;
+    }
+    .img-clicked{
+        position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+      transition: width 2s;
+      max-width: unset;
+    }
+    td:nth-child(1) { 
+        width: 90px;
+     }
+    td:nth-child(2) { 
+        text-align: left;
+     }
+     td:nth-child(3) { 
+        text-align: right;
+        min-width: 50px;
+     }
+/* .card p,.card h4 {
+  
+  color: #514D4D!important;
+} */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  /* width: 40%; */
+  border-radius: 5px;
+  /* color: #514D4D!important; */
+  background-color: #514D4D;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+.nav_buttons {
+    background-color: #ec1a23;
+    border-radius: 100px;
+    box-shadow: rgb(44 187 99 / 20%) 0 -25px 18px -14px inset, rgb(187 44 44 / 15%) 0 1px 2px, rgb(44 187 99 / 15%) 0 2px 4px, rgb(187 44 44 / 15%) 0 4px 8px, rgb(44 187 99 / 15%) 0 8px 16px, rgb(187 44 44 / 15%) 0 16px 32px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    margin: 10px;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 140px;
+}
+</style>
+
+<script type="text/javascript">
+
+    window.onload = function() {
+   // alert("ola")
+var images=document.getElementsByClassName('img');
+console.log(images)
+    for (var i = 0 ; i < images.length; i++) {
+        images[i].addEventListener('click', function (e) {
+            var img=document.elementFromPoint(e.clientX, e.clientY);
+            if(!img.classList.contains("img-clicked"))
+            {
+                img.classList.add("img-clicked");
+
+                document.getElementById("tap_image").style.display="unset";
+            }
+            else{
+                img.classList.remove("img-clicked");
+
+                document.getElementById("tap_image").style.display="none";
+            }
+        console.log(e)
+      });
+}
+      
+    
+    };
+    
+    </script>
+    
+    <table>
+        <tr>
+            <td>
+                <img src="croissanji logo.png?v=1.0.0" style="height: 100px;"/>
+      
+        
+            </td>
+            <td style="font-size: 50px;font-weight: bold;">
+                    Menu
+            </td>
+            <td>
+                <img src="images/halal.png?v=1.0.0" style="height: 120px;"/>
+            </td>
+        </tr>
+    </table>
+  </head>
+  <body>
+<div class="tap-image" id="tap_image">
+    Tap image to close.
+</div>
+<div>
+    <input type="button" class="nav_buttons" value="Breakfast" onclick="document.getElementById('breakfast').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Dinner Chicken" onclick="document.getElementById('dinner_chicken').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Dinner Beef" onclick="document.getElementById('dinner_beef').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Burgers" onclick="document.getElementById('burgers').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Meals" onclick="document.getElementById('meals').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Appetizers" onclick="document.getElementById('appetizers').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Side Orders" onclick="document.getElementById('side_orders').scrollIntoView();"/>
+    <input type="button" class="nav_buttons" value="Drinks" onclick="document.getElementById('drinks').scrollIntoView();"/>
+
+</div>
+<table>
+    <tr>
+        <td>
+            <h2 id="breakfast">
+                Breakfast
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/croissant.jpg?v=1.0.0 " alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>JIBNEH</br>
+        جبنة
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.85 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/croissant.jpg?v=1.0.0 " alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>ZAATAR</br>
+        زعتر
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.85 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/croissant.jpg?v=1.0.0 " alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>JIBNEH & ZAYTOUN </br>
+        جبنة و زيتون 
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.85 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/croissant.jpg?v=1.0.0 " alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>MARTADELLA & JIBNEH</br>
+        جبنة و مرتديلا
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.85 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/croissant.jpg?v=1.0.0 " alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>PIZZA</br>
+        بيتزا
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.85 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/croissant.jpg?v=1.0.0 " alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>CHOCOLATE</br>
+        شوكولا
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.85 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/chocolate-extra.jpg?v=1.0.0" alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>NUTELLA SANDWICH</br>
+        نيوتيلا
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>3 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/turkey-and-cheese.jpg?v=1.0.0" alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>TURKEY & CHEESE</br>
+        حبش و جبنة
+        
+</b></h4> 
+<p>
+    mayo, corn, lettuce, pickels</br>
+    مايونيز, ذرة, خس, كبيس
+</p>
+     
+  </div>
+</td>
+<td>
+<p><b>3 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/halloum.jpg?v=1.0.0" alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>GRILLED HALLOUM </br>
+        حلوم مشوي 
+        
+</b></h4> 
+     <p>
+        tomato, cucumber, lettuce, olive oil</br>
+         بندورة, خيار, خس, زيت زيتون 
+    </p>
+  </div>
+</td>
+<td>
+<p><b>3 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/labneh.jpg?v=1.0.0" alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>LABNEH</br>
+        لبنة
+        
+</b></h4> 
+     <p>
+        oregano, tomato, cucmber, olive, lettuce, olive oil</br>
+        اوريغانو, بندورة, خيار, زيتون, خس, زيت زيتون
+     </p>
+  </div>
+</td>
+<td>
+<p><b>2 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/omlete.jpg?v=1.0.0" alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>OMLETTE</br>
+        بيض
+        <p>
+            mayo, turkey, tomato, pickles</br>
+            مايونيز, حبش, بندورة, كبيس
+        </p>
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>2.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/pizza-sandwich.jpg?v=1.0.0" alt="Cheese" >
+</td>
+<td>
+<div class="container">
+    <h4><b>PIZZA SANDWICH</br>
+        سندويتش بيتزا
+        <p>
+            onions, green peppers,mushroom, double cheese, pepperoni, pizza sauce, ketchup</br>
+            بصل ، فليفلة خضراء ، فطر ، جبنة إكسترا ، بيبروني ، صلصة بيتزا ، كاتشب
+        </p>
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>
+            <h2 id="dinner_chicken">
+                Dinner Chicken
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/fajita.jpg?v=1.0.0" alt="Fajita" >
+</td>
+<td>
+<div class="container">
+    <h4><b>FAJITA</br>
+فاهيتا 
+</b></h4> 
+    <p>mushroom, onions, green peppers, mozzarella cheese, guacamole sauce, lettuce, mayo</br>
+فطر ، بصل ، فليفلة خضراء ، جبنة موزاريلا ، صلصة جواكامولي ، خس ، مايونيز
+</p> 
+  </div>
+</td>
+<td>
+<p><b>5.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/fajita.jpg?v=1.0.0" alt="Fajita" >
+</td>
+<td>
+<div class="container">
+    <h4><b>SPICY FAJITA</br>
+فاهيتا 
+</b></h4> 
+    <p>mushroom, onions, green peppers, mozzarella cheese, guacamole sauce, lettuce, mayo, spicy 
+        sauce
+        خضراء ، جبنة</br>
+فطر ، بصل ، فليفلة خضراء ، جبنة موزاريلا ، صلصة جواكامولي ، خس ، مايونيز, صوص حار
+</p> 
+  </div>
+</td>
+<td>
+<p><b>5.6 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/chicken-bbq.jpg?v=1.0.0" alt="Chicken BBQ" >
+</td>
+<td>
+<div class="container">
+    <h4><b>CHICKEN BARBECUE</br>
+        تشكن باربكيو
+
+</b></h4> 
+    <p>
+        lettuce, pickles, mayo, chips, BBQ sauce</br>
+        خس ، كبيس ، مايونيز ، شيبس ، صوص باربيكيو        
+</p> 
+  </div>
+</td>
+<td>
+<p><b>4.8 $</b></p>
+</td>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+    <td>
+    <img class="img" src="images/CHICKEN-SUB.jpg?v=1.0.0" alt="Chicken Sub" >
+    </td>
+    <td>
+    <div class="container">
+        <h4><b>CHICKEN SUB</br>
+            تشكن ساب         
+    
+    </b></h4> 
+        <p>
+            lettuce, pickles, mayo, corn, soy sauce, mozzarella cheese</br>
+خس ، كبيس ، مايونيز ، ذرة ، صلصة الصويا ، جبنة موزاريلا
+        
+    </p> 
+      </div>
+    </td>
+    <td>
+    <p><b>4.5 $</b></p>
+    </td>
+    </tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+    <tr>
+        <td>
+        <img class="img" src="images/chicke-catalina.jpg?v=1.0.0" alt="Chicken Catalina" >
+        </td>
+        <td>
+        <div class="container">
+            <h4><b>CHICKEN CATALINA</br>
+                تشكن كاتالينا
+                
+        
+        </b></h4> 
+            <p>
+                lettuce, pickles, mayo</br>
+خس ، كبيس ، مايونيز
+        
+        </p> 
+          </div>
+        </td>
+        <td>
+        <p><b>4 $</b></p>
+        </td>
+        </tr>
+    </table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+        <tr>
+            <td>
+            <img class="img" src="images/pepito.jpg?v=1.0.0" alt="Pepito" >
+            </td>
+            <td>
+            <div class="container">
+                <h4><b>PEPITO</br>
+                    بيبيتو
+                    
+            </b></h4> 
+                <p>
+                    turkey, mozzarella cheese, mustard, ketchup, mayo, BBQ sauce, Guasacaca sauce, lettuce</br>
+حبش ، جبنة موزاريلا ، خردل ، كاتشب ، مايونيز ، صوص باربيكيو ، صلصة جواساكاكا ، خس
+        
+            </p> 
+              </div>
+            </td>
+            <td>
+            <p><b>5.5 $</b></p>
+            </td>
+            </tr>
+        </table>
+  
+  
+    </div>
+            </td>
+        </tr>
+    
+
+            <tr>
+                <td>
+                   <div class="card">
+        <table>
+                <tr>
+                    <td>
+                    <img class="img" src="images/boneless_bbq.jpg?v=1.0.0" alt="Chicken Basil" >
+                    </td>
+                    <td>
+                    <div class="container">
+                        <h4><b>BONELESS BBQ</br>
+                            بونلس باربكيو
+                            
+                    
+                    </b></h4> 
+                        <p>
+                            cheddar, chips, pickles, mayo, bbq</br>
+                            شيدر ، شيبس ، كبيس ، مايونيز ، باربيكيو 
+    
+                    </p> 
+                      </div>
+                    </td>
+                    <td>
+                    <p><b>5.9 $</b></p>
+                    </td>
+                    </tr>
+                </table>
+    
+    
+            </div>
+                    </td>
+                </tr>
+            <tr>
+                <td>
+                    <h2 id="dinner_beef">
+                        Dinner Beef
+                    </h2>
+                </td>
+            </tr>
+        
+    
+        <tr>
+            <td>
+               <div class="card">
+    <table>
+            <tr>
+                <td>
+                <img class="img" src="images/sojok.jpg?v=1.0.0" alt="Sojok" >
+                </td>
+                <td>
+                <div class="container">
+                    <h4><b>SOJOK</br>
+                        سجق
+                        
+                </b></h4> 
+                    <p>
+                        tomato, pickles, green peppers, mayo mustard</br>
+بندورة ، كبيس ، فليفلة, مايونيز خردل 
+        
+                </p> 
+                  </div>
+                </td>
+                <td>
+                <p><b>4 $</b></p>
+                </td>
+                </tr>
+            </table>
+  
+  
+        </div>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                   <div class="card">
+        <table>
+                <tr>
+                    <td>
+                    <img class="img" src="images/philly.jpg?v=1.0.0" alt="Philly" >
+                    </td>
+                    <td>
+                    <div class="container">
+                        <h4><b>PHILADELPHIA</br>
+                            فلدلفيا
+                           
+                    </b></h4> 
+                        <p>
+                            onions, mushroom, green peppers, mozzarella cheese, lettuce, mayo</br>
+بصل ، فطر ، فليفلة خضراء ، جبنة موزاريلا ، خس ، مايونيز
+        
+                    </p> 
+                      </div>
+                    </td>
+                    <td>
+                    <p><b>5.5 $</b></p>
+                    </td>
+                    </tr>
+                </table>
+  
+  
+            </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>
+                       <div class="card">
+            <table>
+                    <tr>
+                        <td>
+                        <img class="img" src="images/kafta.jpg?v=1.0.0" alt="Kafta" >
+                        </td>
+                        <td>
+                        <div class="container">
+                            <h4><b>KAFTA</br>
+                                كفتة                                
+                        
+                        </b></h4> 
+                            <p>
+                                Grilled onions, grilled tomato, pickles, mayo</br>
+بصل مشوي، بندورة مشوية، كبيس، مايونيز
+        
+                        </p> 
+                          </div>
+                        </td>
+                        <td>
+                        <p><b>4 $</b></p>
+                        </td>
+                        </tr>
+                    </table>
+  
+  
+                </div>
+                        </td>
+                    </tr>
+
+                    
+                <tr>
+                    <td>
+                       <div class="card">
+            <table>
+                    <tr>
+                        <td>
+                        <img class="img" src="images/cheasy-spicy-beef.jpg?v=1.0.0" alt="Kafta" >
+                        </td>
+                        <td>
+                        <div class="container">
+                            <h4><b>CROISSANJI CHEEZY SPICY BEEF</br>
+                                كرواسونجي تشيزي سبايسي بيف                                 
+                        
+                        </b></h4> 
+                            <p>
+                                onions, mushroom, green peppers, mozzarella, cheddar, lettuce, spicy croissanji mix</br>
+                                بصل ، فطر ، فليفلة خضراء ، موتزاريلا ، شيدر ، خس ، خلطة كرواسونجي الحارة
+        
+                        </p> 
+                          </div>
+                        </td>
+                        <td>
+                        <p><b>7$</b></p>
+                        </td>
+                        </tr>
+                    </table>
+  
+  
+                </div>
+                        </td>
+                    </tr>
+                
+                        <tr>
+                            <td>
+                                <h2 id="burgers">
+                                    Burgers
+                                </h2>
+                            </td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>
+                               <div class="card">
+                    <table>
+                            <tr>
+                                <td>
+                                <img class="img" src="images/beef-burger.jpg?v=1.0.0" alt="Beef Burger" >
+                                </td>
+                                <td>
+                                <div class="container">
+                                    <h4><b>BEEF BURGER</br>
+                                        برغر لحمة
+                                        
+                                
+                                </b></h4> 
+                                    <p>
+                                        iceberg, tomato, onions, cheddar cheese, mushroom, mustard, ketchup, bbq, pickles</br>
+خس ، بندورة ، بصل ، جبنة شيدر ، فطر ، خردل ، كاتشب ، باربيكيو ، كبيس
+        
+                                </p> 
+                                  </div>
+                                </td>
+                                <td>
+                                <p><b>4.5 $</b></p>
+                                </td>
+                                </tr>
+
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+        <tr>
+            <td>
+            <img class="img" src="images/double-beef-burger.jpg?v=1.0.0" alt="Beef Burger" >
+            </td>
+            <td>
+            <div class="container">
+                <h4><b>CROISSANJI DOUBLE BEEF BURGER</br>
+                    كروسانجي دبل بيف برجر
+                    
+            
+            </b></h4> 
+                <p>
+                    iceberg, carmalized onions, onion rings, mozzarella burger, bbq sauce, special croissanji mix </br>
+                    خس ، بصل مكرمل ، حلقات بصل ، موتزاريلا برجر ، صوص باربيكيو ، خلطة كرواسونجي الخاصة
+
+            </p> 
+              </div>
+            </td>
+            <td>
+            <p><b>8 $</b></p>
+            </td>
+            </tr>
+
+</table>
+
+
+</div>
+</td>
+</tr>
+</tr>
+                
+<tr>
+    <td>
+        <h2 id="meals">
+            Meals
+        </h2>
+    </td>
+</tr>
+<tr>
+    <td>
+       <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/crispy_meal.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+<h4><b>CRISPY MEAL</br>
+
+    
+</b></h4> 
+<p>
+    5 crispy strips, fries box, cheddar dip, ketchup dip </br>
+     شرائح كرسبي 5، علبة بطاطا، صوص شيدر، كاتشب
+
+</p> 
+</div>
+</td>
+<td>
+<p><b>7.5 $</b></p>
+</td>
+</tr>
+</table>
+
+
+</div>
+    </td>
+</tr>
+
+
+
+    <tr>
+        <td>
+            <h2 id="appetizers">
+                Appetizers
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/fries.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>FRIES BOX</br>
+    
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>1.8 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+	<tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/wedges.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>WEDGES</br>
+    
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>2.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/onion-rings-box.webp?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>ONION RINGS BOX</br>
+    
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>2.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/loaded_fries.webp?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>LOADED FRIES</br>
+    
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>7.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/corndog.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>CORNDOG</br>
+    
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>2.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    
+    <tr>
+        <td>
+            <h2 id="side_orders">
+                Side Orders
+            </h2>
+        </td>
+    </tr>
+   
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/cheddar.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>CHEDDAR DIP</br>
+        شيدر
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.4 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/bbq.jpg?v=1.0.0">
+</td>
+<td>
+<div class="container">
+    <h4><b>BBQ DIP</br>
+        باربيكيو 
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.4 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/mayo.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>MAYO DIP</br>
+        مابونيز
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.4 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/mustard.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>MAYO MUSTARD DIP</br>
+        مايونيز مع خردل
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.4 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/guacamole_dip.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>GUACAMOLE</br>
+     جواكامولي
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.4 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/pesto.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>PESTO</br>
+     صوص الحبق
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.5 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+    
+    <tr>
+        <td>
+            <h2 id="drinks">
+                Drinks
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/pepsi.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>PEPSI CAN</br>
+        بيبسي
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.8 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/iced_tea.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>ICED TEA</br>
+        شاي مثلج
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.8 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/tropicana.jpg?v=1.0.0">
+</td>
+<td>
+<div class="container">
+    <h4><b>TROPICANA</br>
+        تروبيكانا 
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.47 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/mr_juicy.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>MR. JUICY</br>
+        مستر جوسي
+        
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.3 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/ayran.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>AYRAN</br>
+        عيران
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.8 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+           <div class="card">
+<table>
+<tr>
+<td>
+<img class="img" src="images/water.jpg?v=1.0.0" >
+</td>
+<td>
+<div class="container">
+    <h4><b>WATER</br>
+        ماء
+        
+</b></h4> 
+     
+  </div>
+</td>
+<td>
+<p><b>0.3 $</b></p>
+</td>
+</tr>
+</table>
+  
+  
+</div>
+        </td>
+    </tr>
+    
+</table>
+  </body>
+</html>
