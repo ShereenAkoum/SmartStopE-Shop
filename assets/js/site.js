@@ -34,3 +34,28 @@ function getCategories() {
     console.log("An error has occurred.");
   });
 }
+
+function openPopup(clickedElement) {
+  var popupContainer = document.getElementById("popupContainer");
+  var popupImage = document.getElementById("popupImage");
+  var popupDescription = document.getElementById("popupDescription");
+
+  // Get the background image and description from the clicked item
+  var backgroundImage = clickedElement.style.backgroundImage;
+  var description = "Product Description"; // Set your product description here
+
+  // Extracting the URL from the background-image property
+  var imageUrl = backgroundImage.replace('url("', "").replace('")', "");
+
+  // Set the image source and description in the popup
+  popupImage.src = imageUrl;
+  popupDescription.textContent = description;
+
+  // Display the popup
+  popupContainer.style.display = "block";
+}
+
+function closePopup() {
+  var popupContainer = document.getElementById("popupContainer");
+  popupContainer.style.display = "none";
+}
