@@ -3,6 +3,9 @@
   overflow: hidden; /* Hide overflowing content */
 }
 
+.header-area {
+  border-bottom: 1px solid #efb611;
+}
 .main-nav {
   justify-content: center;
 }
