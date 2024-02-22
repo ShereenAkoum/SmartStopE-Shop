@@ -2,3 +2,26 @@
   height: 210px; /* Adjust the height as per your requirement */
   overflow: hidden; /* Hide overflowing content */
 }
+
+.main-nav {
+  justify-content: center;
+}
+
+.header-area {
+  display: flex;
+  justify-content: center;
+}
+
+.header-area img {
+  max-width: 550px;
+}
+
+.containerTitle h2 {
+  color: #efb611;
+}
+
+@media (max-width: 992px) {
+  .header-area .main-nav .logo img {
+    max-width: 400px;
+  }
+}
