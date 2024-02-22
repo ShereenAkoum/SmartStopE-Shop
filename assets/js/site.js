@@ -49,6 +49,7 @@ function openPopup(clickedElement) {
 
   // Set the image source and description in the popup
   popupImage.src = imageUrl;
+  popupImage.classList.add("modal-content");
   popupDescription.textContent = description;
 
   // Display the popup
