@@ -17,14 +17,15 @@
 
 .header-area img {
   max-width: 550px;
+  max-height: 100%;
 }
 
 .containerTitle h2 {
   color: #efb611;
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .header-area .main-nav .logo img {
     max-width: 400px;
   }
-}
+} */

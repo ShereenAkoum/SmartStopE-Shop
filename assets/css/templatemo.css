@@ -256,7 +256,7 @@ Pre-loader Style
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.99);
+  background-color: #4e4e4e;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -655,8 +655,8 @@ Header Style
     padding: 0px;
   }
   .header-area .logo {
-    margin-left: 0px;
-    margin-top: 30px;
+    /* margin-left: 0px;
+    margin-top: 30px; */
   }
   .header-area .menu-trigger {
     display: block !important;
@@ -1619,9 +1619,6 @@ body {
 }
 
 @media (max-width: 767px) {
-  .header-area {
-    top: 0;
-  }
   .main-banner .right-image span.offer {
     left: 20px;
     bottom: 20px;
