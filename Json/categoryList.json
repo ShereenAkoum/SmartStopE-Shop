@@ -3,12 +3,17 @@
         {
             "id": 1,
             "name": "Cleaning & Household",
-            "src": "assets/images/categories/icon-cleaning.svg"
+            "src": "icon-cleaning.svg"
         },
         {
             "id": 2,
             "name": "Personal Care",
-            "src": "assets/images/categories/icon-beauty.svg"
+            "src": "icon-beauty.svg"
+        },
+        {
+            "id": 3,
+            "name": "Baby Care",
+            "src": "icon-baby.svg"
         }
     ]
 }

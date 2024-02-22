@@ -17,7 +17,7 @@ function getCategories() {
             <div class="item">
               <div class="image">
                 <img
-                  src="${category.src}"
+                  src="assets/images/categories/${category.src}"
                   alt="${category.name}"
                   style="max-width: 44px"
                 />

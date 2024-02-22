@@ -846,13 +846,13 @@ Services Style
   display: inline-block;
   text-align: center;
   line-height: 90px;
-  background-color: #0071f8;
+  background-color: #efb611;
   border-radius: 50%;
   transition: all 0.3s;
 }
 
 .features .item:hover .image {
-  background-color: #ee626b;
+  background-color: #4e4e4e;
 }
 
 /* 
