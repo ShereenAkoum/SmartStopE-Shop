@@ -13,7 +13,7 @@ function getCategories() {
       console.log(category.name);
       var categoryHTML = `
       <div class="col-lg-3 col-6 p-3">
-      <a href="#" id="${category.id}">
+      <a href="product-details.html" id="${category.id}">
             <div class="item">
               <div class="image">
                 <img
