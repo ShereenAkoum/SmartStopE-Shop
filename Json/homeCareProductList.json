@@ -1,0 +1,16 @@
+{
+    "list": [
+        {
+            "sku": "HC-001",
+            "name": "",
+            "descriptiom": "",
+            "price": 2,
+            "currency": "$",
+            "discountedPrice": 0,
+            "3_packPrice": 0,
+            "6_packPrice": 0,
+            "12_packPrice": 0,
+            "img": ""
+        }
+    ]
+}
