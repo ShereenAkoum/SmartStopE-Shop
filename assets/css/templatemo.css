@@ -382,7 +382,7 @@ Header Style
 }
 
 .header-area .main-nav {
-  background: transparent;
+  background: #4e4e4e;
   display: flex;
 }
 
@@ -714,11 +714,11 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
+  /* background-image: url(../images/banner-bg.jpg); */
   border-radius: 0px 0px 150px 150px;
-  background-position: center bottom;
+  /* background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   padding: 110px 0px;
 }
 
