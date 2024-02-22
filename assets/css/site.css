@@ -7,7 +7,14 @@
   border-bottom: 1px solid #efb611;
 }
 footer {
-  border-top: 1px solid #efb611;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #efb611;
+  color: #4e4e4e;
+  text-align: center;
+  font-weight: 600;
 }
 .main-nav {
   justify-content: center;
