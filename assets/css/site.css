@@ -84,10 +84,14 @@ footer {
 
 .trending .item span.price.price-discount {
   background-color: red;
+}
+.trending .item span.price {
   right: 10px;
   top: 8px;
 }
-
 .mainbackArrow{ 
   color: #efb611;
+}
+.sku-container{
+  text-align: center;
 }

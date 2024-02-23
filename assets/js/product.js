@@ -19,19 +19,24 @@ $(document).ready(function () {
       console.log(product.name);
 
       var productHTML = `<div class="col-lg-2 col-6 p-3">
-      <div
-        class="item product-item"
-        onclick="openPopup(this)"
-        style="background-image: url(assets/images/products/${product.src});">
+      <div>
+      <div class="item product-item" onclick="openPopup(this)" style="background-image: url(assets/images/products/${product.src});">
         <div class="thumb">
-        ${product.discountedPrice !== 0 ?
+          ${product.discountedPrice !== 0 ?
           `<span class="price price-discount"><em>$${product.price}</em>$${product.discountedPrice}</span>` :
           `<span class="price">$${product.price}</span>`
         }
         </div>
+        <div class="down-content">
+        <a><i class="fa fa-shopping-bag"></i></a>
       </div>
+        </div>
+        </div>
+      <div class="sku-container">${product.sku}</div>
+
     </div>`;
       productContainer.append(productHTML);
+
     });
   }).fail(function () {
     console.log("An error has occurred.");
