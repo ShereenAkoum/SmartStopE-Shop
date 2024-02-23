@@ -1,38 +1,40 @@
 $(document).ready(function () {
-  getCategories();
-});
+  var urlParams = new URLSearchParams(window.location.search);
+  var categoryId = urlParams.get('categoryId');
 
-function getCategories() {
-  $.getJSON("./Json/categoryList.json", function (data) {
-    var categoryContainer = $("#categoryContainer");
+  var url = "./Json/";
+  if (categoryId == 1) {
+    url += "homeCareProductList.json";
+  }
+
+  $.getJSON(url, function (data) {
+    var productContainer = $("#productContainer");
 
     var list = data.list;
 
-    list.forEach((category) => {
-      //href="product-details.html"
-      var categoryHTML = `
-      <div class="col-lg-2 col-6 p-3">
-      <a onclick="openProducts(${category.id})" id="${category.id}">
-            <div class="item">
-              <div class="image">
-                <img
-                  src="assets/images/categories/${category.src}"
-                  alt="${category.name}"
-                  style="max-width: 44px"
-                />
-              </div>
-              <h4 class="category-name">${category.name}</h4>
-            </div>
-          </a>
-        </div>`;
+    list.forEach((product) => {
+      console.log(product.sku);
+      console.log(product.name);
 
-      // Append the HTML to categoryContainer
-      categoryContainer.append(categoryHTML);
+      var productHTML= `<div class="col-lg-2 col-6 p-3">
+      <div
+        class="item product-item"
+        onclick="openPopup(this)"
+        style="background-image: url(assets/images/products/${product.src});">
+        <div class="thumb">
+        ${product.discountedPrice !== 0 ? 
+          `<span class="price price-discount"><em>$${product.price}</em>$${product.discountedPrice}</span>` :
+          `<span class="price">$${product.price}</span>`
+        }
+        </div>
+      </div>
+    </div>`;
+    productContainer.append(productHTML);
     });
   }).fail(function () {
     console.log("An error has occurred.");
   });
-}
+});
 
 function openPopup(clickedElement) {
   var popupContainer = document.getElementById("popupContainer");
@@ -60,7 +62,3 @@ function closePopup() {
   popupContainer.style.display = "none";
 }
 
-function openProducts(categoryId) { 
-  console.log(categoryId);
-  window.location.href = "product-details.html?categoryId=" + categoryId;
-}

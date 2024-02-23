@@ -11,17 +11,14 @@
     <title>Smart Stop e-Shop</title>
 
     <!-- Bootstrap core CSS -->
-    <link
-      href="vendor/bootstrap/css/bootstrap.min.css?ver=1.1"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css?ver=1.1"/>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css?ver=1.1" />
     <link rel="stylesheet" href="assets/css/templatemo.css?ver=1.1" />
-    <link rel="stylesheet" href="assets/css/owl.css?ver=1.1" />
-    <link rel="stylesheet" href="assets/css/animate.css?ver=1.1" />
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css?ver=1.1" />
+    <!-- <link rel="stylesheet" href="assets/css/owl.css?ver=1.1" /> -->
+    <!-- <link rel="stylesheet" href="assets/css/animate.css?ver=1.1" /> -->
+    <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css?ver=1.1" /> -->
     <link rel="stylesheet" href="assets/css/site.css?ver=1.1" />
     <!---->
   </head>
@@ -52,37 +49,9 @@
       <div class="container">
         <div class="col-lg-6 mb-3">
           <div class="containerTitle">
-            <h2>Products</h2>
-          </div>
+            <h2><a class="mainbackArrow" href="index.html"><i class="fa-solid fa-chevron-left"></i></a> Products</h2>          </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3 col-6 p-3">
-            <div
-              class="item product-item"
-              onclick="openPopup(this)"
-              style="
-                background-image: url(assets/images/products/trending-01.jpg);
-              "
-            >
-              <div class="thumb">
-                <span class="price">$20</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6 p-3">
-            <div
-              class="item product-item"
-              onclick="openPopup(this)"
-              style="background-image: url(assets/images/products/persil.jpg)"
-            >
-              <div class="thumb">
-                <!-- <a href="product-details.html"
-                  ><img src="assets/images/products/trending-01.jpg" alt=""
-                /></a> -->
-                <span class="price"><em>$28</em>$20</span>
-              </div>
-            </div>
-          </div>
+        <div class="row" id="productContainer">
         </div>
       </div>
     </div>
@@ -98,7 +67,7 @@
     <footer>
       <div class="container">
         <div class="col-lg-12">
-          <p>Copyright © 2024 Smart Stop e-Shop. All rights reserved.</p>
+          <p>© 2024 Smart Stop e-Shop. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -107,10 +76,10 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js?ver=1.1"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js?ver=1.1"></script>
-    <script src="assets/js/isotope.min.js?ver=1.1"></script>
-    <script src="assets/js/owl-carousel.js?ver=1.1"></script>
-    <script src="assets/js/counter.js?ver=1.1"></script>
+    <!-- <script src="assets/js/isotope.min.js?ver=1.1"></script> -->
+    <!-- <script src="assets/js/owl-carousel.js?ver=1.1"></script> -->
+    <!-- <script src="assets/js/counter.js?ver=1.1"></script> -->
     <script src="assets/js/custom.js?ver=1.1"></script>
-    <script src="assets/js/site.js?ver=1.1"></script>
+    <script src="assets/js/product.js"></script>
   </body>
 </html>

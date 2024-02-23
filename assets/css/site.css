@@ -80,3 +80,14 @@ footer {
     width: 100%; /* Set popup width to full viewport width */
   }
 }
+
+
+.trending .item span.price.price-discount {
+  background-color: red;
+  right: 10px;
+  top: 8px;
+}
+
+.mainbackArrow{ 
+  color: #efb611;
+}

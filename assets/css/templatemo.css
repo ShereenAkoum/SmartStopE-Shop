@@ -1644,9 +1644,7 @@ body {
   .main-banner .caption form input {
     max-width: 100%;
   }
-  .features .item {
-    margin-bottom: 30px;
-  }
+  
   .trending .main-button,
   .cta::after,
   .most-played .main-button,

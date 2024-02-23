@@ -14,6 +14,11 @@
             "id": 3,
             "name": "Baby Care",
             "src": "icon-baby.svg"
+        },
+        {
+            "id": 4,
+            "name": "Cloth",
+            "src": "icon-cloth.svg"
         }
     ]
 }
