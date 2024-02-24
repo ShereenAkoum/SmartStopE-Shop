@@ -1,25 +1,35 @@
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var categoryId = urlParams.get("categoryId");
+  var fileTitle = "";
 
   var url = "./Json/";
   if (categoryId == 1) {
-    url += "homeCareProductList.json";
+    fileTitle = "home";
     $("#categoryName").text("- Home Care");
+  } else if (categoryId == 2) {
+    fileTitle = "personal";
+    $("#categoryName").text("- Personal Care");
+  } else if (categoryId == 3) {
+    fileTitle = "teeth";
+    $("#categoryName").text("- Teeth Care");
+  } else if (categoryId == 4) {
+    fileTitle = "baby";
+    $("#categoryName").text("- Baby Care");
   } else if (categoryId == null) {
     window.location.href = "index.html";
   }
 
-  $.getJSON(url, function (data) {
+  $.getJSON((url += fileTitle + "CareProductList.json"), function (data) {
     var productContainer = $("#productContainer");
 
     var list = data.list;
 
     list.forEach((product) => {
-      console.log(product.sku);
-      console.log(product.name);
-
-      var productHTML = ` <div class="col-lg-2 col-6">
+      console.log(product.SKU);
+      console.log(product.Name);
+      if (product.active) {
+        var productHTML = ` <div class="col-lg-2 col-6">
       <div class="item product-item" onclick="openPopup(this)" style="background-image: url(assets/images/products/${
         product.src
       });">
@@ -32,11 +42,12 @@ $(document).ready(function () {
         </div>
         <div class="down-content">
           <a><i class="fa fa-shopping-bag"></i></a>
-          <a>${product.sku}</a>
+          <a>${product.SKU}</a>
         </div>
       </div>
     </div>`;
-      productContainer.append(productHTML);
+        productContainer.append(productHTML);
+      }
     });
   }).fail(function () {
     console.log("An error has occurred.");
@@ -48,17 +59,17 @@ function openPopup(clickedElement) {
   var popupImage = document.getElementById("popupImage");
   var popupDescription = document.getElementById("popupDescription");
 
-  // Get the background image and description from the clicked item
+  // Get the background image and Description from the clicked item
   var backgroundImage = clickedElement.style.backgroundImage;
-  var description = "Product Description"; // Set your product description here
+  var Description = "Product Description"; // Set your product Description here
 
   // Extracting the URL from the background-image property
   var imageUrl = backgroundImage.replace('url("', "").replace('")', "");
 
-  // Set the image source and description in the popup
+  // Set the image source and Description in the popup
   popupImage.src = imageUrl;
   popupImage.classList.add("modal-content");
-  popupDescription.textContent = description;
+  popupDescription.textContent = Description;
 
   // Display the popup
   popupContainer.style.display = "block";

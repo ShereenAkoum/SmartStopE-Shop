@@ -123,3 +123,9 @@ footer {
 #categoryName {
   color: #fff;
 }
+
+.comingSoon {
+  margin-top: 5px;
+  color: red;
+  font-weight: bolder;
+}

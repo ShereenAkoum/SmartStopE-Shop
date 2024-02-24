@@ -2,23 +2,27 @@
     "list": [
         {
             "id": 1,
-            "name": "Cleaning & Household",
-            "src": "icon-cleaning.svg"
+            "Name": "Cleaning & Household",
+            "src": "icon-cleaning.svg",
+            "comingSoon": false
         },
         {
             "id": 2,
-            "name": "Personal Care",
-            "src": "icon-beauty.svg"
+            "Name": "Personal Care",
+            "src": "icon-beauty.svg",
+            "comingSoon": false
         },
         {
             "id": 3,
-            "name": "Baby Care",
-            "src": "icon-baby.svg"
+            "Name": "Baby Care",
+            "src": "icon-baby.svg",
+            "comingSoon": false
         },
         {
             "id": 4,
-            "name": "Cloth",
-            "src": "icon-cloth.svg"
+            "Name": "Cloth",
+            "src": "icon-cloth.svg",
+            "comingSoon": true
         }
     ]
 }

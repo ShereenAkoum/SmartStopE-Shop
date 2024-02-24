@@ -1,0 +1,28 @@
+{
+    "list": [
+        {
+            "SKU": "HC-001",
+            "Name": "Persil",
+            "descriptiom": "52 Caps   4 in 1",
+            "price": 20,
+            "currency": "$",
+            "discountedPrice": 0,
+            "3_packPrice": 0,
+            "6_packPrice": 0,
+            "12_packPrice": 0,
+            "src": "persil.jpg"
+        },
+        {
+            "SKU": "HC-002",
+            "Name": "Persil",
+            "descriptiom": "52 Caps   4 in 1",
+            "price": 28,
+            "currency": "$",
+            "discountedPrice": 20,
+            "3_packPrice": 0,
+            "6_packPrice": 0,
+            "12_packPrice": 0,
+            "src": "trending-01.jpg"
+        }
+    ]
+}

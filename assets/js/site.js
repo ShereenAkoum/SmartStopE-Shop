@@ -1,11 +1,4 @@
 $(document).ready(function () {
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    document.documentElement.style.setProperty("--text-color-light", "red");
-    document.documentElement.style.setProperty("--bg-color-light", "white");
-  }
   getCategories();
 });
 
@@ -18,20 +11,27 @@ function getCategories() {
     list.forEach((category) => {
       //href="product-details.html"
       var categoryHTML = `
-      <div class="col-lg-2 col-6 p-3 category-item">
-      <a onclick="openProducts(${category.id})" id="${category.id}">
-            <div class="item">
-              <div class="image">
-                <img
-                  src="assets/images/categories/${category.src}"
-                  alt="${category.name}"
-                  style="max-width: 44px"
-                />
-              </div>
-              <h4 class="category-name">${category.name}</h4>
+      <div class="col-lg-2 col-6 p-3 ${
+        category.comingSoon ? "" : `category-item`
+      }">
+        <a ${
+          category.comingSoon ? "" : `onclick="openProducts(${category.id})"`
+        } id="${category.id}">
+          <div class="item">
+            <div class="image">
+              <img
+                src="assets/images/categories/${category.src}"
+                alt="${category.Name}"
+                style="max-width: 44px"
+              />
             </div>
-          </a>
-        </div>`;
+            <h4 class="category-Name">${category.Name}</h4>
+            ${
+              category.comingSoon ? `<p class="comingSoon">Coming Soon</p>` : ""
+            }
+          </div>
+        </a>
+      </div>`;
 
       // Append the HTML to categoryContainer
       categoryContainer.append(categoryHTML);
