@@ -95,6 +95,9 @@ footer {
   .popup-content {
     width: 100%; /* Set popup width to full viewport width */
   }
+  .modal-content {
+    width: 100px;
+  }
   .most-played .item .down-content a {
     width: 60%;
   }
@@ -129,6 +132,16 @@ footer {
   color: red;
   font-weight: bolder;
 }
+
+.popup-content {
+  width: 600px; /* Set popup width to full viewport width */
+  text-align: center;
+}
 .modal-content {
-  width: 340px;
+  width: 200px;
+}
+
+.popup-content #popupImage {
+  display: block;
+  margin: 0 auto;
 }
