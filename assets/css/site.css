@@ -1,6 +1,16 @@
 :root {
-  --text-color: #efb611; /* Default text color */
-  --bg-color: #4e4e4e; /* Default background color */
+  --text-color-light: #efb611; /* Default text color for light mode */
+  --bg-color-light: #4e4e4e; /* Default background color for light mode */
+
+  --text-color-dark: red; /* Default text color for dark mode */
+  --bg-color-dark: #333333; /* Default background color for dark mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--text-color-dark);
+    background-color: var(--bg-color-dark);
+  }
 }
 
 body {
