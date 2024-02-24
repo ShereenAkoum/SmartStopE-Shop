@@ -26,7 +26,7 @@ footer {
 }
 
 .header-area img {
-  /* max-width: 550px; */
+  max-width: 280px;
   max-height: 100%;
 }
 
@@ -100,4 +100,7 @@ footer {
 }
 .category-item {
   cursor: pointer;
+}
+#categoryName {
+  color: #fff;
 }
