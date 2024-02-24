@@ -1,8 +1,9 @@
 var list = [];
+var fileTitle = "";
+
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var categoryId = urlParams.get("categoryId");
-  var fileTitle = "";
 
   var url = "./Json/";
   if (categoryId == 1) {
@@ -29,9 +30,9 @@ $(document).ready(function () {
     list.forEach((product) => {
       if (product.active) {
         var productHTML = ` <div class="col-lg-2 col-6">
-      <div class="item product-item" onclick="openPopup(this,'${
+      <div class="item product-item" onclick="openPopup('${
         product.SKU
-      }')" style="background-image: url(assets/images/products/${
+      }')" style="background-image: url(assets/images/products/${fileTitle}Care/${
           product.src
         });">
         <div class="thumb">
@@ -55,30 +56,23 @@ $(document).ready(function () {
   });
 });
 
-function openPopup(clickedElement, SKU) {
+function openPopup(SKU) {
   var popupContainer = document.getElementById("popupContainer");
   var popupImage = document.getElementById("popupImage");
   var popupDescription = document.getElementById("popupDescription");
 
   for (const product of list) {
     if (product.SKU == SKU) {
-      // Get the background image and Description from the clicked item
-      var backgroundImage = clickedElement.style.backgroundImage;
-      var Description = "Product Description"; // Set your product Description here
+      var Description = "Product Description";
 
-      // Extracting the URL from the background-image property
-      var imageUrl = backgroundImage.replace('url("', "").replace('")', "");
-
-      // Set the image source and Description in the popup
+      var imageUrl = `assets/images/products/${fileTitle}Care/${product.src}`;
       popupImage.src = imageUrl;
       popupImage.classList.add("modal-content");
-      popupDescription.textContent = Description;
 
-      // Display the popup
+      popupDescription.textContent = Description;
       popupContainer.style.display = "block";
 
-      // Stop the loop
-      return; // This will exit the entire function
+      return;
     }
   }
 }
