@@ -5,6 +5,7 @@ $(document).ready(function () {
   var url = "./Json/";
   if (categoryId == 1) {
     url += "homeCareProductList.json";
+    $("#categoryName").text("- Home Care");
   } else if (categoryId == null) {
     window.location.href = "index.html";
   }
