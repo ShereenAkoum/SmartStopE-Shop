@@ -1,3 +1,13 @@
+:root {
+  --text-color: #efb611; /* Default text color */
+  --bg-color: #4e4e4e; /* Default background color */
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
 .item {
   height: 210px; /* Adjust the height as per your requirement */
   overflow: hidden; /* Hide overflowing content */
