@@ -8,8 +8,8 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: var(--text-color-dark);
-    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    background-color: var(--bg-color-light);
   }
 }
 
