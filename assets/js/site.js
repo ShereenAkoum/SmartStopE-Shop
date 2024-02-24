@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    document.documentElement.style.setProperty("--text-color-light", "red");
+    document.documentElement.style.setProperty("--bg-color-light", "white");
+  }
   getCategories();
 });
 

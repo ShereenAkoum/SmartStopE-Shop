@@ -6,13 +6,6 @@
   --bg-color-dark: white; /* Default background color for dark mode */
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: var(--text-color-dark);
-    background-color: var(--bg-color-dark);
-  }
-}
-
 body {
   color: var(--text-color-light);
   background-color: var(--bg-color-light);
