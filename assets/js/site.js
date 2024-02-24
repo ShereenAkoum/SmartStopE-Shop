@@ -11,7 +11,7 @@ function getCategories() {
     list.forEach((category) => {
       //href="product-details.html"
       var categoryHTML = `
-      <div class="col-lg-2 col-6 p-3">
+      <div class="col-lg-2 col-6 p-3 category-item">
       <a onclick="openProducts(${category.id})" id="${category.id}">
             <div class="item">
               <div class="image">
@@ -34,33 +34,7 @@ function getCategories() {
   });
 }
 
-function openPopup(clickedElement) {
-  var popupContainer = document.getElementById("popupContainer");
-  var popupImage = document.getElementById("popupImage");
-  var popupDescription = document.getElementById("popupDescription");
-
-  // Get the background image and description from the clicked item
-  var backgroundImage = clickedElement.style.backgroundImage;
-  var description = "Product Description"; // Set your product description here
-
-  // Extracting the URL from the background-image property
-  var imageUrl = backgroundImage.replace('url("', "").replace('")', "");
-
-  // Set the image source and description in the popup
-  popupImage.src = imageUrl;
-  popupImage.classList.add("modal-content");
-  popupDescription.textContent = description;
-
-  // Display the popup
-  popupContainer.style.display = "block";
-}
-
-function closePopup() {
-  var popupContainer = document.getElementById("popupContainer");
-  popupContainer.style.display = "none";
-}
-
-function openProducts(categoryId) { 
+function openProducts(categoryId) {
   console.log(categoryId);
   window.location.href = "product-details.html?categoryId=" + categoryId;
 }

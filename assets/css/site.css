@@ -81,17 +81,23 @@ footer {
   }
 }
 
-
-.trending .item span.price.price-discount {
+.trending .item span.price.price-discount,
+.most-played .item span.price.price-discount {
   background-color: red;
 }
-.trending .item span.price {
+.trending .item span.price,
+.most-played .item span.price {
   right: 10px;
   top: 8px;
 }
-.mainbackArrow{ 
+
+.mainbackArrow {
   color: #efb611;
 }
-.sku-container{
+.sku-container {
   text-align: center;
+  background-color: #4e4e4e;
+}
+.category-item {
+  cursor: pointer;
 }

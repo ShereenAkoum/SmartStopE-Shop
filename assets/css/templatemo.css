@@ -880,7 +880,8 @@ Trending Style
   overflow: hidden;
 }
 
-.trending .item span.price em {
+.trending .item span.price em,
+.most-played .item span.price em {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -888,7 +889,8 @@ Trending Style
   display: block;
 }
 
-.trending .item span.price {
+.trending .item span.price,
+.most-played .item span.price {
   text-align: right;
   position: absolute;
   right: 20px;
@@ -949,9 +951,9 @@ Most Played Style
 */
 
 .most-played {
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7;
   padding: 100px 0px;
-  border-radius: 150px;
+  border-radius: 150px; */
 }
 
 .most-played .main-button {
@@ -968,7 +970,7 @@ Most Played Style
 }
 
 .most-played .item .thumb {
-  position: relative;
+  /* position: relative; */
   border-radius: 25px;
   overflow: hidden;
 }
@@ -997,7 +999,7 @@ Most Played Style
   line-height: 40px;
   height: 40px;
   padding: 0px 15px;
-  background-color: #ee626b;
+  background-color: #4e4e4e;
   color: #fff;
   border-radius: 20px;
   font-size: 15px;
@@ -1005,7 +1007,7 @@ Most Played Style
   font-weight: 600;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -20px;
+  bottom: 3px;
   transition: all 0.3s;
 }
 
@@ -1014,7 +1016,7 @@ Most Played Style
 }
 
 .most-played .item:hover .down-content a {
-  background-color: #0071f8;
+  background-color: #efb611;
 }
 
 /* 
@@ -1644,7 +1646,7 @@ body {
   .main-banner .caption form input {
     max-width: 100%;
   }
-  
+
   .trending .main-button,
   .cta::after,
   .most-played .main-button,

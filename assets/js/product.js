@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
-  var categoryId = urlParams.get('categoryId');
+  var categoryId = urlParams.get("categoryId");
 
   var url = "./Json/";
   if (categoryId == 1) {
@@ -18,25 +18,24 @@ $(document).ready(function () {
       console.log(product.sku);
       console.log(product.name);
 
-      var productHTML = `<div class="col-lg-2 col-6 p-3">
-      <div>
-      <div class="item product-item" onclick="openPopup(this)" style="background-image: url(assets/images/products/${product.src});">
+      var productHTML = ` <div class="col-lg-2 col-6">
+      <div class="item product-item" onclick="openPopup(this)" style="background-image: url(assets/images/products/${
+        product.src
+      });">
         <div class="thumb">
-          ${product.discountedPrice !== 0 ?
-          `<span class="price price-discount"><em>$${product.price}</em>$${product.discountedPrice}</span>` :
-          `<span class="price">$${product.price}</span>`
-        }
+          ${
+            product.discountedPrice !== 0
+              ? `<span class="price price-discount"><em>${product.currency}${product.price}</em>$${product.discountedPrice}</span>`
+              : `<span class="price">${product.currency}${product.price}</span>`
+          }
         </div>
         <div class="down-content">
-        <a><i class="fa fa-shopping-bag"></i></a>
+          <a><i class="fa fa-shopping-bag"></i></a>
+          <a>${product.sku}</a>
+        </div>
       </div>
-        </div>
-        </div>
-      <div class="sku-container">${product.sku}</div>
-
     </div>`;
       productContainer.append(productHTML);
-
     });
   }).fail(function () {
     console.log("An error has occurred.");
@@ -68,4 +67,3 @@ function closePopup() {
   var popupContainer = document.getElementById("popupContainer");
   popupContainer.style.display = "none";
 }
-
