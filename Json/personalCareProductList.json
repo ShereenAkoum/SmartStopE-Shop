@@ -36,7 +36,7 @@
             "3_packPrice": 0,
             "6_packPrice": 0,
             "12_packPrice": 0,
-            "src": "Intesa.png",
+            "src": "Intesa.PNG",
             "active": true
         },
         {
@@ -62,7 +62,7 @@
             "3_packPrice": 0,
             "6_packPrice": 0,
             "12_packPrice": 0,
-            "src": "tahitiBlack.png",
+            "src": "tahitiBlack.PNG",
             "active": true
         },
         {
@@ -75,7 +75,7 @@
             "3_packPrice": 0,
             "6_packPrice": 0,
             "12_packPrice": 0,
-            "src": "adidasIceDive.png",
+            "src": "adidasIceDive.PNG",
             "active": true
         },
         {
@@ -88,7 +88,7 @@
             "3_packPrice": 0,
             "6_packPrice": 0,
             "12_packPrice": 0,
-            "src": "adidasPureGame.png",
+            "src": "adidasPureGame.PNG",
             "active": true
         },
         {
