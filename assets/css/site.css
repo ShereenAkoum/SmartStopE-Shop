@@ -3,7 +3,7 @@
   --bg-color-light: #4e4e4e; /* Default background color for light mode */
 
   --text-color-dark: red; /* Default text color for dark mode */
-  --bg-color-dark: #333333; /* Default background color for dark mode */
+  --bg-color-dark: white; /* Default background color for dark mode */
 }
 
 @media (prefers-color-scheme: dark) {
