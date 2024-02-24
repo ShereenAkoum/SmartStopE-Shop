@@ -1,3 +1,4 @@
+var list = [];
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var categoryId = urlParams.get("categoryId");
@@ -23,16 +24,16 @@ $(document).ready(function () {
   $.getJSON((url += fileTitle + "CareProductList.json"), function (data) {
     var productContainer = $("#productContainer");
 
-    var list = data.list;
+    list = data.list;
 
     list.forEach((product) => {
-      console.log(product.SKU);
-      console.log(product.Name);
       if (product.active) {
         var productHTML = ` <div class="col-lg-2 col-6">
-      <div class="item product-item" onclick="openPopup(this)" style="background-image: url(assets/images/products/${
-        product.src
-      });">
+      <div class="item product-item" onclick="openPopup(this,'${
+        product.SKU
+      }')" style="background-image: url(assets/images/products/${
+          product.src
+        });">
         <div class="thumb">
           ${
             product.discountedPrice !== 0
@@ -54,25 +55,32 @@ $(document).ready(function () {
   });
 });
 
-function openPopup(clickedElement) {
+function openPopup(clickedElement, SKU) {
   var popupContainer = document.getElementById("popupContainer");
   var popupImage = document.getElementById("popupImage");
   var popupDescription = document.getElementById("popupDescription");
 
-  // Get the background image and Description from the clicked item
-  var backgroundImage = clickedElement.style.backgroundImage;
-  var Description = "Product Description"; // Set your product Description here
+  for (const product of list) {
+    if (product.SKU == SKU) {
+      // Get the background image and Description from the clicked item
+      var backgroundImage = clickedElement.style.backgroundImage;
+      var Description = "Product Description"; // Set your product Description here
 
-  // Extracting the URL from the background-image property
-  var imageUrl = backgroundImage.replace('url("', "").replace('")', "");
+      // Extracting the URL from the background-image property
+      var imageUrl = backgroundImage.replace('url("', "").replace('")', "");
 
-  // Set the image source and Description in the popup
-  popupImage.src = imageUrl;
-  popupImage.classList.add("modal-content");
-  popupDescription.textContent = Description;
+      // Set the image source and Description in the popup
+      popupImage.src = imageUrl;
+      popupImage.classList.add("modal-content");
+      popupDescription.textContent = Description;
 
-  // Display the popup
-  popupContainer.style.display = "block";
+      // Display the popup
+      popupContainer.style.display = "block";
+
+      // Stop the loop
+      return; // This will exit the entire function
+    }
+  }
 }
 
 function closePopup() {

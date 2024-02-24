@@ -129,3 +129,6 @@ footer {
   color: red;
   font-weight: bolder;
 }
+.modal-content {
+  width: 340px;
+}
