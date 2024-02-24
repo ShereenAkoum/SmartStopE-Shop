@@ -92,6 +92,9 @@ footer {
   .popup-content {
     width: 100%; /* Set popup width to full viewport width */
   }
+  .most-played .item .down-content a {
+    width: 60%;
+  }
 }
 
 .trending .item span.price.price-discount,
