@@ -78,7 +78,7 @@ function openPopup(SKU) {
           ${
             product.discountedPrice !== 0
               ? `<td style="color: red;"><span style="text-decoration: line-through;">${product.currency}${product.price}</span>&nbsp;<span>${product.currency}${product.discountedPrice}</span></td>`
-              : `<span class="price">${product.currency}${product.price}</span>`
+              : `<td class="price">${product.currency}${product.price}</td>`
           }
         </tr>
         <tr>
