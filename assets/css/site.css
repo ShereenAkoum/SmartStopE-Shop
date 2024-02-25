@@ -5,7 +5,11 @@
   --text-color-dark: red; /* Default text color for dark mode */
   --bg-color-dark: white; /* Default background color for dark mode */
 }
-
+@media (forced-colors: active) {
+  :root {
+    color-scheme: light;
+  }
+}
 body {
   color: var(--text-color-light);
   background-color: var(--bg-color-light);
