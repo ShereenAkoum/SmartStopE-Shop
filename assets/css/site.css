@@ -98,11 +98,11 @@ footer {
 
 @media only screen and (max-width: 600px) {
   .popup-content {
-    width: 100% !important; /* Set popup width to full viewport width */
+    width: 90% !important; /* Set popup width to full viewport width */
   }
-  .modal-content {
+  /* .modal-content {
     width: 100px !important;
-  }
+  } */
   .most-played .item .down-content a {
     width: 60%;
   }
@@ -141,9 +141,9 @@ footer {
 .popup-content {
   width: 600px; /* Set popup width to full viewport width */
 }
-.modal-content {
+/* .modal-content {
   width: 200px;
-}
+} */
 
 .popup-content #popupImage {
   display: block;

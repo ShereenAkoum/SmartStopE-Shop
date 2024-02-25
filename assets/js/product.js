@@ -69,6 +69,13 @@ function openPopup(SKU) {
       popupImage.src = imageUrl;
       popupImage.classList.add("modal-content");
 
+      // Set fixed width and height
+      popupImage.style.width = "300px"; // Set your desired width
+      popupImage.style.height = "200px"; // Set your desired height
+
+      // Set object-fit to contain
+      popupImage.style.objectFit = "contain";
+
       popupDescription.textContent = Description;
       popupContainer.style.display = "block";
 
