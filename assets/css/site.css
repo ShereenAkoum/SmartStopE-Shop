@@ -164,3 +164,7 @@ th {
 
   background-color: #dddddd;
 }
+#popupDescription {
+  font-size: 10px !important;
+  line-height: 16px !important;
+}
