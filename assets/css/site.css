@@ -149,3 +149,18 @@ footer {
   display: block;
   margin: 0 auto;
 }
+
+table {
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+}
+.grey-bg {
+  border: 1px solid black;
+
+  background-color: #dddddd;
+}

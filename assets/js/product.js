@@ -63,7 +63,23 @@ function openPopup(SKU) {
 
   for (const product of list) {
     if (product.SKU == SKU) {
-      var Description = "Product Description";
+      var Description = `
+      <table>
+        <tr>
+          <td class="grey-bg">SKU</td>
+          <td>${product.SKU}</td>
+        </tr>
+        <tr>
+          <td class="grey-bg">Name</td>
+          <td>${product.Name}</td>
+        </tr>
+        <tr>
+          <td class="grey-bg">Price</td>
+          <td>${product.price}</td>
+        </tr>
+        <!-- Add more rows for other attributes as needed -->
+      </table>
+    `;
 
       var imageUrl = `assets/images/products/${fileTitle}Care/${product.src}`;
       popupImage.src = imageUrl;
@@ -76,7 +92,7 @@ function openPopup(SKU) {
       // Set object-fit to contain
       popupImage.style.objectFit = "contain";
 
-      popupDescription.textContent = Description;
+      popupDescription.innerHTML = Description;
       popupContainer.style.display = "block";
 
       return;
