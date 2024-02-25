@@ -30,59 +30,59 @@
             "SKU": "HC-003",
             "Name": "Dettol clean and fresh Multipurpose",
             "Description": "1 Litre ",
-            "price": 1.5,
+            "price": 0,
             "currency": "$",
             "discountedPrice": 0,
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "DettolMultipurpose.jpg",
+            "src": "DettolMultipurposeLemon.jpg",
             "active": true
         },
         {
             "SKU": "HC-004",
             "Name": "Dettol Liquid lavendre",
             "Description": "500 ml ",
-            "price": 1.5,
+            "price": 0,
             "currency": "$",
             "discountedPrice": 0,
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "DettolLavendre.jpg",
-            "active": false
+            "src": "dettolLiquidLavender.jpg",
+            "active": true
         },
         {
             "SKU": "HC-005",
             "Name": "Dettol liquid spray multipurpose",
             "Description": "500 ml ",
-            "price": 1.5,
+            "price": 0,
             "currency": "$",
             "discountedPrice": 0,
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "DettolSpray.jpg",
-            "active": false
+            "src": "DettolLemonSpray.png",
+            "active": true
         },
         {
             "SKU": "HC-006",
-            "Name": "Harpic 2",
-            "Description": "",
-            "price": 1.5,
+            "Name": "Harpic Citrus",
+            "Description": "2x40g",
+            "price": 0,
             "currency": "$",
             "discountedPrice": 0,
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "DettolSpray.jpg",
-            "active": false
+            "src": "HarpicActiveFreshLemon.jpg",
+            "active": true
         },
         {
             "SKU": "HC-007",
-            "Name": "Harpic 2",
-            "Description": "",
-            "price": 1.5,
+            "Name": "Harpic",
+            "Description": "2x40g",
+            "price": 0,
             "currency": "$",
             "discountedPrice": 0,
             "packOf3Price": 0,
@@ -93,7 +93,7 @@
         },
         {
             "SKU": "HC-008",
-            "Name": "Gif Cleaning Crem",
+            "Name": "Cif Cleaning Crem",
             "Description": "500 ML ",
             "price": 1,
             "currency": "$",
@@ -101,12 +101,12 @@
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "Gif.jpg",
-            "active": false
+            "src": "Cif.jpg",
+            "active": true
         },
         {
             "SKU": "HC-009",
-            "Name": "Dettol Handwash",
+            "Name": "Dettol Handwash Sensitive",
             "Description": "200ml",
             "price": 1,
             "currency": "$",
@@ -114,12 +114,12 @@
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "Gif.jpg",
-            "active": false
+            "src": "DettolHandWashPurple.jpg",
+            "active": true
         },
         {
             "SKU": "HC-010",
-            "Name": "Dettol Handwash",
+            "Name": "Dettol Handwash Original",
             "Description": "200ml",
             "price": 1,
             "currency": "$",
@@ -127,8 +127,21 @@
             "packOf3Price": 0,
             "packOf6Price": 0,
             "packOf12Price": 0,
-            "src": "Gif.jpg",
-            "active": false
+            "src": "DettolHandWashOriginal.jpg",
+            "active": true
+        },
+        {
+            "SKU": "HC-011",
+            "Name": "Palmolive Hand Wash",
+            "Description": "300ml",
+            "price": 1,
+            "currency": "$",
+            "discountedPrice": 0,
+            "packOf3Price": 0,
+            "packOf6Price": 0,
+            "packOf12Price": 0,
+            "src": "palmolivehandwash.PNG",
+            "active": true
         },
         {
             "SKU": "HC-012",
@@ -141,7 +154,7 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "FairyLiquidBig.jpg",
-            "active": false
+            "active": true
         }
     ]
 }
