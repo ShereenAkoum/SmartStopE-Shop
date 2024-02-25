@@ -82,16 +82,34 @@ function openPopup(SKU) {
           }
         </tr>
         <tr>
-        <td class="grey-bg">Price</td>
-        <td>${product.price} ${product.currency}</td>
+        <td class="grey-bg">Pack of 3</td>
+        ${
+          product.packOf3Price !== 0
+            ? `<td>
+              ${product.currency}${product.packOf3Price}
+            </td>`
+            : `<td>-</td>`
+        }
       </tr>
       <tr>
-      <td class="grey-bg">Price</td>
-      <td>${product.price} ${product.currency}</td>
+      <td class="grey-bg">Pack of 6</td>
+      ${
+        product.packOf6Price !== 0
+          ? `<td>
+            ${product.currency}${product.packOf6Price}
+          </td>`
+          : `<td>-</td>`
+      }
     </tr>
     <tr>
-    <td class="grey-bg">Price</td>
-    <td>${product.price} ${product.currency}</td>
+    <td class="grey-bg">Pack of 12</td>
+    ${
+      product.packOf12Price !== 0
+        ? `<td>
+          ${product.currency}${product.packOf12Price}
+        </td>`
+        : `<td>-</td>`
+    }
   </tr>
       </table>
     `;

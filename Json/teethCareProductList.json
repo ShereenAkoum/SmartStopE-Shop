@@ -7,9 +7,9 @@
             "price": 20,
             "currency": "$",
             "discountedPrice": 0,
-            "3_packPrice": 0,
-            "6_packPrice": 0,
-            "12_packPrice": 0,
+            "packOf3Price": 0,
+            "packOf6Price": 0,
+            "packOf12Price": 0,
             "src": "persil.jpg"
         },
         {
@@ -19,9 +19,9 @@
             "price": 28,
             "currency": "$",
             "discountedPrice": 20,
-            "3_packPrice": 0,
-            "6_packPrice": 0,
-            "12_packPrice": 0,
+            "packOf3Price": 0,
+            "packOf6Price": 0,
+            "packOf12Price": 0,
             "src": "trending-01.jpg"
         }
     ]
