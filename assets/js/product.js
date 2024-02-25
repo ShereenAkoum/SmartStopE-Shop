@@ -38,7 +38,7 @@ $(document).ready(function () {
         <div class="thumb">
           ${
             product.discountedPrice !== 0
-              ? `<span class="price price-discount"><em>${product.currency}${product.price}</em>$${product.discountedPrice}</span>`
+              ? `<span class="price price-discount"><em>${product.currency}${product.price}</em>${product.currency}${product.discountedPrice}</span>`
               : `<span class="price">${product.currency}${product.price}</span>`
           }
         </div>
@@ -75,9 +75,24 @@ function openPopup(SKU) {
         </tr>
         <tr>
           <td class="grey-bg">Price</td>
-          <td>${product.price}</td>
+          ${
+            product.discountedPrice !== 0
+              ? `<td style="color: red;"><span style="text-decoration: line-through;">${product.currency}${product.price}</span>&nbsp;<span>${product.currency}${product.discountedPrice}</span></td>`
+              : `<span class="price">${product.currency}${product.price}</span>`
+          }
         </tr>
-        <!-- Add more rows for other attributes as needed -->
+        <tr>
+        <td class="grey-bg">Price</td>
+        <td>${product.price} ${product.currency}</td>
+      </tr>
+      <tr>
+      <td class="grey-bg">Price</td>
+      <td>${product.price} ${product.currency}</td>
+    </tr>
+    <tr>
+    <td class="grey-bg">Price</td>
+    <td>${product.price} ${product.currency}</td>
+  </tr>
       </table>
     `;
 
