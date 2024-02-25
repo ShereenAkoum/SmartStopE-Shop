@@ -1,6 +1,18 @@
 $(document).ready(function () {
   getCategories();
+  getTheme();
 });
+
+function getTheme() {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme:dark)").matches
+  ) {
+    alert("dark");
+  } else {
+    alert("light");
+  }
+}
 
 function getCategories() {
   $.getJSON("./Json/categoryList.json", function (data) {
