@@ -14,11 +14,15 @@
     <title>Varia Mart</title>
 
     <!-- Bootstrap core CSS -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="vendor/bootstrap/css/bootstrap.min.css?ver=1.1"
-    />
+    /> -->
 
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css?ver=1.1" />
     <link rel="stylesheet" href="assets/css/templatemo.css?ver=1.1" />
@@ -48,6 +52,18 @@
       <a href="index.html" class="logo">
         <img src="assets/images/1mainLogo.png" alt="Logo" />
       </a>
+      <div class="col cartBtn">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#cart"
+        >
+          <i class="fas fa-shopping-cart"></i> (<span class="total-count"></span
+          >)
+        </button>
+        <!-- <button class="clear-cart btn btn-danger">Clear Cart</button> -->
+      </div>
     </header>
     <!-- ***** Header Area End ***** -->
 
@@ -62,6 +78,47 @@
       </div>
     </div>
 
+    <!-- Cart Modal -->
+    <div
+      class="modal fade"
+      id="cart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="show-cart table"></table>
+            <div>Total price: $<span class="total-cart"></span></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Order now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cart Modal -->
+
     <footer>
       <div class="container">
         <div class="col-lg-12">
@@ -71,13 +128,20 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js?ver=1.1"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js?ver=1.1"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js?ver=1.1"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js?ver=1.1"></script> -->
     <!-- <script src="assets/js/isotope.min.js?ver=1.1"></script> -->
     <!-- <script src="assets/js/owl-carousel.js?ver=1.1"></script> -->
     <!-- <script src="assets/js/counter.js?ver=1.1"></script> -->
     <script src="assets/js/custom.js?ver=1.1"></script>
+    <script src="assets/js/cart.js"></script>
     <script src="assets/js/site.js?ver=1.1"></script>
   </body>
 </html>
