@@ -11,8 +11,8 @@
   }
 }
 body {
-  color: var(--text-color-light);
-  background-color: var(--bg-color-light);
+  /* color: var(--text-color-light) !important; */
+  background-color: var(--bg-color-light)!important;
 }
 
 .item {
@@ -156,7 +156,7 @@ table {
 
 td,
 th {
-  border: 1px solid #dddddd;
+  /* border: 1px solid #dddddd; */
   text-align: center;
 }
 .grey-bg {
@@ -167,4 +167,10 @@ th {
 #popupDescription {
   font-size: 10px !important;
   line-height: 16px !important;
+}
+
+
+.btn-primary {
+  background-color: #efb611 !important;
+  border-color: #efb611!important;
 }

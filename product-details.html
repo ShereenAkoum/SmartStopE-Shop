@@ -1,98 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link href="assets/css/googleFonts.css?ver=1.1" rel="stylesheet" />
 
-    <title>Varia Mart</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="assets/css/googleFonts.css?ver=1.1" rel="stylesheet" />
 
-    <!-- Bootstrap core CSS -->
-    <link
-      rel="stylesheet"
-      href="vendor/bootstrap/css/bootstrap.min.css?ver=1.1"
-    />
+  <title>Varia Mart</title>
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css?ver=1.1" />
-    <link rel="stylesheet" href="assets/css/templatemo.css?ver=1.1" />
-    <!-- <link rel="stylesheet" href="assets/css/owl.css?ver=1.1" /> -->
-    <!-- <link rel="stylesheet" href="assets/css/animate.css?ver=1.1" /> -->
-    <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css?ver=1.1" /> -->
-    <link rel="stylesheet" href="assets/css/site.css?ver=1.1" />
-    <!---->
-  </head>
+  <!-- Bootstrap core CSS -->
+  <!-- <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css?ver=1.1" /> -->
 
-  <body>
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css?ver=1.1" />
+  <link rel="stylesheet" href="assets/css/templatemo.css?ver=1.1" />
+  <!-- <link rel="stylesheet" href="assets/css/owl.css?ver=1.1" /> -->
+  <!-- <link rel="stylesheet" href="assets/css/animate.css?ver=1.1" /> -->
+  <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css?ver=1.1" /> -->
+  <link rel="stylesheet" href="assets/css/site.css?ver=1.1" />
+  <!---->
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky pt-2 pb-2">
+    <a href="index.html" class="logo">
+      <img src="assets/images/1mainLogo.png" alt="Logo" />
+    </a>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="section trending mt-3">
+    <div class="container">
+      <div class="col-lg-6 mb-3">
+        <div class="containerTitle">
+          <h2>
+            <a class="mainbackArrow" href="index.html"><i class="fa-solid fa-chevron-left"></i></a>
+            Products
+            <span id="categoryName"></span>
+          </h2>
         </div>
       </div>
     </div>
-    <!-- ***** Preloader End ***** -->
+  </div>
+  <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">  <i class="fas fa-shopping-cart"></i> (<span
+            class="total-count"></span>)</button><button class="clear-cart btn btn-danger">Clear Cart</button>
+      </div>
+    </div>
+  </nav>
+  <div class="section most-played">
+    <div class="container">
+      <div class="row" id="productContainer"></div>
+    </div>
+  </div>
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky pt-2 pb-2">
-      <a href="index.html" class="logo">
-        <img src="assets/images/1mainLogo.png" alt="Logo" />
-      </a>
-    </header>
-    <!-- ***** Header Area End ***** -->
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="show-cart table">
 
-    <div class="section trending mt-3">
-      <div class="container">
-        <div class="col-lg-6 mb-3">
-          <div class="containerTitle">
-            <h2>
-              <a class="mainbackArrow" href="index.html"
-                ><i class="fa-solid fa-chevron-left"></i
-              ></a>
-              Products
-              <span id="categoryName"></span>
-            </h2>
-          </div>
+          </table>
+          <div>Total price: $<span class="total-cart"></span></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Order now</button>
         </div>
       </div>
     </div>
-    <div class="section most-played">
-      <div class="container">
-        <div class="row" id="productContainer"></div>
+  </div>
+  <!-- Cart Modal -->
+
+  <!-- Popup Container -->
+  <div id="popupContainer" class="popup-container">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <img id="popupImage" src="" alt="Product Image" />
+      <p class="mt-2" id="popupDescription">Product Description</p>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>© 2024 Varia Mart. All rights reserved.</p>
       </div>
     </div>
+  </footer>
 
-    <!-- Popup Container -->
-    <div id="popupContainer" class="popup-container">
-      <div class="popup-content">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <img id="popupImage" src="" alt="Product Image" />
-        <p class="mt-2" id="popupDescription">Product Description</p>
-      </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="col-lg-12">
-          <p>© 2024 Varia Mart. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+  <!-- Scripts -->
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js?ver=1.1"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js?ver=1.1"></script>
-    <!-- <script src="assets/js/isotope.min.js?ver=1.1"></script> -->
-    <!-- <script src="assets/js/owl-carousel.js?ver=1.1"></script> -->
-    <!-- <script src="assets/js/counter.js?ver=1.1"></script> -->
-    <script src="assets/js/custom.js?ver=1.1"></script>
-    <script src="assets/js/product.js"></script>
-  </body>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- <script src="vendor/jquery/jquery.min.js?ver=1.1"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js?ver=1.1"></script> -->
+  <!-- <script src="assets/js/isotope.min.js?ver=1.1"></script> -->
+  <!-- <script src="assets/js/owl-carousel.js?ver=1.1"></script> -->
+  <!-- <script src="assets/js/counter.js?ver=1.1"></script> -->
+  <script src="assets/js/custom.js?ver=1.1"></script>
+  <script src="assets/js/product.js"></script>
+  <!-- <script src="assets/js/cart.js"></script> -->
+
+  
+</body>
+
 </html>
