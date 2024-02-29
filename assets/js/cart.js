@@ -141,7 +141,7 @@ function displayCart() {
       "</td>" +
       "<td><div class='input-group'>" +
       minusButton +
-      "<input type='number' min = 1 class='item-count form-control' data-sku='" +
+      "<input type='tel' min = 1 class='item-count form-control' data-sku='" +
       cartArray[i].sku +
       "' data-name='" +
       cartArray[i].name +
