@@ -64,8 +64,7 @@ $(document).ready(function () {
             product.SKU +
             '\')" data-sku="' +
             product.SKU +
-            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>' +
-            product.SKU +
+            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add To Cart'
             "</a>" +
             "</div>" +
             "</div>" +

@@ -125,15 +125,15 @@ function displayCart() {
     var minusButton =
       cartArray[i].count > 1
         ? "<button class='minus-item input-group-addon btn btn-primary' data-sku='" +
-          cartArray[i].sku +
-          "' data-name='" +
-          cartArray[i].name +
-          "'>-</button>"
+        cartArray[i].sku +
+        "' data-name='" +
+        cartArray[i].name +
+        "'>-</button>"
         : "<button class='delete-item btn btn-danger' data-sku='" +
-          cartArray[i].sku +
-          "' data-name='" +
-          cartArray[i].name +
-          "'><i class='fa fa-trash'></i></button>";
+        cartArray[i].sku +
+        "' data-name='" +
+        cartArray[i].name +
+        "'><i class='fa fa-trash'></i></button>";
     output +=
       "<tr>" +
       "<td class='cartTd'>" +
@@ -196,3 +196,110 @@ $(".show-cart").on("change", ".item-count", function (event) {
 
 // Initial display of cart
 displayCart();
+
+
+function openSendEmail() {
+  $('#cart').modal('hide');
+
+  var popupOrderContainer = document.getElementById("popupOrderContainer");
+  popupOrderContainer.style.display = "block";
+
+  return;
+}
+
+function sendEmail() {
+  var form = $('#emailForm');
+
+  var cartList = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
+  var customerName = form.find('#name').val();
+  var phoneNumber = form.find('#number').val();
+  console.log(cartList);
+  console.log(customerName);
+  console.log(phoneNumber);
+  if (cartList == []) {
+    alert("Your Cart is empty");
+    return;
+  }
+  if (customerName == "" && phoneNumber == "") {
+    alert("Please Enter Your Name and Number to proceed");
+    return;
+  } else {
+    if (customerName == "") {
+      alert("Please Enter Your Name to proceed");
+      return;
+    }
+    if (phoneNumber == "") {
+      alert("Please Enter Your Number to proceed");
+      return;
+    }
+  }
+  var currentDate = new Date().toLocaleDateString();
+
+  // Create a div element for customer info
+  var customerInfoDiv = document.createElement('div');
+  customerInfoDiv.innerHTML = '<p>Customer Name: ' + customerName + '</p>' +
+    '<p>Phone Number: ' + phoneNumber + '</p>' +
+    '<p>Date: ' + currentDate + '</p>';
+
+  // Create a table element
+  var table = document.createElement('table');
+  table.style.borderCollapse = 'collapse';
+  table.style.width = '100%';
+
+  var headerRow = document.createElement('tr');
+
+  var headers = ['SKU', 'Name', 'Price', 'Count'];
+
+  headers.forEach(function (headerText) {
+    var headerCell = document.createElement('th');
+    headerCell.style.border = '1px solid black';
+    headerCell.style.padding = '8px';
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
+  });
+
+  table.appendChild(headerRow);
+
+  var tbody = document.createElement('tbody');
+
+  cartList.forEach(function (product) {
+    var row = document.createElement('tr');
+
+    for (var key in product) {
+      var cell = document.createElement('td');
+      cell.style.border = '1px solid black';
+      cell.style.padding = '8px';
+      cell.textContent = product[key];
+      row.appendChild(cell);
+    }
+
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+
+  // Combine customer info div and table
+  var emailContent = customerInfoDiv.outerHTML + table.outerHTML;
+
+  Email.send({
+    Host: "smtp.elasticemail.com",
+    Username: "vvariamartt@gmail.com",
+    Password: "7171C1284341CEB6F0AA7C24F80761EAD45A",
+    To: 'ismailyoussef25185@gmail.com, vvariamartt@gmail.com',
+    From: "vvariamartt@gmail.com",
+    Subject: "Order Details from " + customerName,
+    Body: emailContent,
+  })
+    .then(function (message) {
+      alert("Order Sent");
+    });
+}
+
+function closeOrderPopup() {
+  var form = $('#emailForm');
+  form.find('#name').val("");
+  form.find('#number').val("");
+
+  var popupContainer = document.getElementById("popupOrderContainer");
+  popupContainer.style.display = "none";
+}
