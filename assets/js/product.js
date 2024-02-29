@@ -46,6 +46,7 @@ $(document).ready(function () {
             product.src +
             ');">' +
             '<div class="thumb">' +
+            '<div class="empty-div"></div>' + // Empty div added here
             (product.discountedPrice !== 0
               ? '<span class="price price-discount"><em>' +
                 product.currency +
