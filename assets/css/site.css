@@ -197,3 +197,7 @@ th {
   color: #fff !important;
   font-weight: bolder !important;
 }
+.totalPrice{
+  color:green;
+  font-weight: bold;
+}
