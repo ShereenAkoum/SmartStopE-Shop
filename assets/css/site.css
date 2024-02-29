@@ -119,7 +119,10 @@ footer {
 }
 
 .mainbackArrow {
-  color: #efb611;
+  color: #efb611 !important;
+}
+a:hover  {
+  color: #fff !important;
 }
 .sku-container {
   text-align: center;
@@ -136,6 +139,7 @@ footer {
   margin-top: 5px;
   color: red;
   font-weight: bolder;
+  line-height: normal !important;
 }
 
 .popup-content {
@@ -186,4 +190,10 @@ th {
   display: flex;
   justify-content: end;
   align-items: center;
+}
+.formCartLabel{
+  width: 200px;
+  background-color: #5a6268 !important;
+  color: #fff !important;
+  font-weight: bolder !important;
 }

@@ -141,7 +141,7 @@ function displayCart() {
       "</td>" +
       "<td><div class='input-group'>" +
       minusButton +
-      "<input type='number' class='item-count form-control' data-sku='" +
+      "<input type='number' min = 1 class='item-count form-control' data-sku='" +
       cartArray[i].sku +
       "' data-name='" +
       cartArray[i].name +
@@ -197,17 +197,14 @@ $(".show-cart").on("change", ".item-count", function (event) {
 // Initial display of cart
 displayCart();
 
-
-function openSendEmail() {
+$('.checkoutBtn').click(function() {
   $('#cart').modal('hide');
-
-  var popupOrderContainer = document.getElementById("popupOrderContainer");
-  popupOrderContainer.style.display = "block";
-
   return;
-}
+});
 
 function sendEmail() {
+  $(".total-cart").html(shoppingCart.totalCart());
+
   var form = $('#emailForm');
 
   var cartList = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
@@ -216,7 +213,7 @@ function sendEmail() {
   console.log(cartList);
   console.log(customerName);
   console.log(phoneNumber);
-  if (cartList == []) {
+  if (cartList.length == 0) {
     alert("Your Cart is empty");
     return;
   }
@@ -239,7 +236,8 @@ function sendEmail() {
   var customerInfoDiv = document.createElement('div');
   customerInfoDiv.innerHTML = '<p>Customer Name: ' + customerName + '</p>' +
     '<p>Phone Number: ' + phoneNumber + '</p>' +
-    '<p>Date: ' + currentDate + '</p>';
+    '<p>Date: ' + currentDate + '</p>'
+    '<p>Total Count: ' + shoppingCart.totalCount() + '</p>';
 
   // Create a table element
   var table = document.createElement('table');
