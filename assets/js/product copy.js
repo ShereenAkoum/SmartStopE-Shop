@@ -35,17 +35,23 @@ $(document).ready(function () {
     .then((data) => {
       var productContainer = document.getElementById("productContainer");
       list = data.list;
-
+      // style="background-image: url(assets/images/products/' +
+      // filetitle +
+      // "care/" +
+      // product.src +
+      // ');"
       list.forEach(function (product) {
         if (product.active) {
           var productHTML =
             '<div class="col-lg-2 col-6">' +
-            '<div class="item product-item" style="background-image: url(assets/images/products/' +
+            '<div class="item product-item">' +
+            '<div class="thumb" style="width:auto"><a onclick="openPopup(\'' +
+            product.SKU +
+            '\')"><img src="assets/images/products/' +
             fileTitle +
-            "Care/" +
+            'Care/' +
             product.src +
-            ');">' +
-            '<div class="thumb">' +
+            '" alt=""/></a>' +
             (product.discountedPrice !== 0
               ? '<span class="price price-discount"><em>' +
                 product.currency +
@@ -60,18 +66,18 @@ $(document).ready(function () {
                 "</span>") +
             "</div>" +
             '<div class="down-content">' +
-            "<a onclick=\"addToCart('" +
+            '<a onclick="addToCart(\'' +
             product.SKU +
             '\')" data-sku="' +
             product.SKU +
-            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add'
-            "</a>" +
+            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add</a>' +
             "</div>" +
             "</div>" +
             "</div>";
           productContainer.insertAdjacentHTML("beforeend", productHTML);
         }
       });
+      
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
@@ -97,41 +103,37 @@ function openPopup(SKU) {
         </tr>
         <tr>
           <td class="grey-bg">Price</td>
-          ${
-            product.discountedPrice !== 0
-              ? `<td style="color: red;"><span style="text-decoration: line-through;">${product.currency}${product.price}</span>&nbsp;<span>${product.currency}${product.discountedPrice}</span></td>`
-              : `<td class="price">${product.currency}${product.price}</td>`
-          }
+          ${product.discountedPrice !== 0
+          ? `<td style="color: red;"><span style="text-decoration: line-through;">${product.currency}${product.price}</span>&nbsp;<span>${product.currency}${product.discountedPrice}</span></td>`
+          : `<td class="price">${product.currency}${product.price}</td>`
+        }
         </tr>
         <tr>
         <td class="grey-bg">Pack of 3</td>
-        ${
-          product.packOf3Price !== 0
-            ? `<td>
+        ${product.packOf3Price !== 0
+          ? `<td>
               ${product.currency}${product.packOf3Price}
             </td>`
-            : `<td>-</td>`
+          : `<td>-</td>`
         }
       </tr>
       <tr>
       <td class="grey-bg">Pack of 6</td>
-      ${
-        product.packOf6Price !== 0
+      ${product.packOf6Price !== 0
           ? `<td>
             ${product.currency}${product.packOf6Price}
           </td>`
           : `<td>-</td>`
-      }
+        }
     </tr>
     <tr>
     <td class="grey-bg">Pack of 12</td>
-    ${
-      product.packOf12Price !== 0
-        ? `<td>
+    ${product.packOf12Price !== 0
+          ? `<td>
           ${product.currency}${product.packOf12Price}
         </td>`
-        : `<td>-</td>`
-    }
+          : `<td>-</td>`
+        }
   </tr>
       </table>
     `;
