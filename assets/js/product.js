@@ -50,7 +50,7 @@ $(".empty-div").click(function () {
             product.src +
             ');">' +
             '<div class="thumb">' +
-            '<div class="empty-div"><input type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
+            '<div class="empty-div"><input readonly type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
             product.SKU +
             '\')"></div>' + // Empty div added here
             (product.discountedPrice !== 0

@@ -209,11 +209,14 @@ th {
 }
 
 .empty-div { 
+  cursor: pointer;
   width: 100%;
   height: 100%;
 }
   .hidden-input {
   opacity: 0;
+  cursor: pointer;
+
   /* pointer-events: none; */
   width: 100%;
   height: 100%;
