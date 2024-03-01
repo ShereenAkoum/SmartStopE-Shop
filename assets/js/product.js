@@ -25,6 +25,10 @@ $(document).ready(function () {
     window.location.href = "index.html";
   }
 
+$(".empty-div").click(function () {
+  console.log("empty-div");
+});
+
   fetch(url + fileTitle + "CareProductList.json")
     .then((response) => {
       if (!response.ok) {
@@ -46,7 +50,9 @@ $(document).ready(function () {
             product.src +
             ');">' +
             '<div class="thumb">' +
-            '<div class="empty-div"></div>' + // Empty div added here
+            '<div class="empty-div"><input type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
+            product.SKU +
+            '\')"></div>' + // Empty div added here
             (product.discountedPrice !== 0
               ? '<span class="price price-discount"><em>' +
                 product.currency +
@@ -142,7 +148,7 @@ function openPopup(SKU) {
       popupImage.classList.add("modal-content");
 
       // Set fixed width and height
-      popupImage.style.width = "300px"; // Set your desired width
+      popupImage.style.width = "280px"; // Set your desired width
       popupImage.style.height = "200px"; // Set your desired height
 
       // Set object-fit to contain
