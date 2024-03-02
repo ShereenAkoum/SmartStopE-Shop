@@ -1015,7 +1015,7 @@ Most Played Style
   color: #0071f8;
 }
 
-.most-played .item:hover .down-content a {
+.most-played .item .down-content a:hover {
   background-color: #efb611;
   color: #4e4e4e;
 }

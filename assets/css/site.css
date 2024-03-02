@@ -87,6 +87,7 @@ footer {
   right: 10px;
   cursor: pointer;
   font-size: 24px;
+  z-index: 1;
 }
 
 .product-item {
@@ -119,7 +120,10 @@ footer {
 }
 
 .mainbackArrow {
-  color: #efb611;
+  color: #efb611 !important;
+}
+a:hover  {
+  color: #fff !important;
 }
 .sku-container {
   text-align: center;
@@ -136,6 +140,7 @@ footer {
   margin-top: 5px;
   color: red;
   font-weight: bolder;
+  line-height: normal !important;
 }
 
 .popup-content {
@@ -159,11 +164,11 @@ th {
   /* border: 1px solid #dddddd; */
   text-align: center;
 }
-.grey-bg {
+/* .grey-bg {
   border: 1px solid black;
 
   background-color: #dddddd;
-}
+} */
 #popupDescription {
   font-size: 10px !important;
   line-height: 16px !important;
@@ -178,12 +183,41 @@ th {
   vertical-align: middle !important;
 }
 
-.cartTable {
-  padding: 10px;
+.table.cartTable td, .table th {
+  padding: 0px !important;
 }
 
 .cartBtn {
   display: flex;
   justify-content: end;
   align-items: center;
+}
+.formCartLabel{
+  width: 80px;
+  background-color: #5a6268 !important;
+  color: #fff !important;
+  font-weight: bolder !important;
+}
+.totalPrice{
+  color:green;
+  font-weight: bold;
+}
+
+.thumb  {
+  width: 100%; /* Adjust width as needed */
+  height: 100%;
+}
+
+.empty-div { 
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+  .hidden-input {
+  opacity: 0;
+  cursor: pointer;
+
+  /* pointer-events: none; */
+  width: 100%;
+  height: 100%;
 }
