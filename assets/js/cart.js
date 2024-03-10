@@ -2,11 +2,22 @@
 var shoppingCart = (function () {
   var cart = [];
 
-  function Item(sku, name, price, count) {
+  function Item(
+    sku,
+    name,
+    price,
+    count,
+    packOf3Price,
+    packOf6Price,
+    packOf12Price
+  ) {
     this.sku = sku;
     this.name = name;
     this.price = price;
     this.count = count;
+    this.packOf3Price = packOf3Price;
+    this.packOf6Price = packOf6Price;
+    this.packOf12Price = packOf12Price;
   }
 
   function saveCart() {
@@ -21,7 +32,15 @@ var shoppingCart = (function () {
 
   var obj = {};
 
-  obj.addItemToCart = function (sku, name, price, count) {
+  obj.addItemToCart = function (
+    sku,
+    name,
+    price,
+    count,
+    packOf3Price,
+    packOf6Price,
+    packOf12Price
+  ) {
     for (var item in cart) {
       if (cart[item].sku == sku) {
         cart[item].count++;
@@ -29,7 +48,15 @@ var shoppingCart = (function () {
         return;
       }
     }
-    var item = new Item(sku, name, price, count);
+    var item = new Item(
+      sku,
+      name,
+      price,
+      count,
+      packOf3Price,
+      packOf6Price,
+      packOf12Price
+    );
     cart.push(item);
     saveCart();
   };
@@ -96,7 +123,14 @@ var shoppingCart = (function () {
       for (var p in item) {
         itemCopy[p] = item[p];
       }
-      itemCopy.total = Number(item.price * item.count).toFixed(2);
+      itemCopy.total =
+        item.count == 3
+          ? Number(item.packOf3Price).toFixed(2)
+          : item.count == 6
+          ? Number(item.packOf6Price).toFixed(2)
+          : item.count == 12
+          ? Number(item.packOf12Price).toFixed(2)
+          : Number(item.price * item.count).toFixed(2);
       cartCopy.push(itemCopy);
     }
     return cartCopy;
@@ -112,7 +146,10 @@ function addToCart(SKU) {
     selectedProduct.SKU,
     selectedProduct.Name,
     selectedProduct.price,
-    1
+    1,
+    selectedProduct.packOf3Price,
+    selectedProduct.packOf6Price,
+    selectedProduct.packOf12Price
   );
   displayCart();
 }
@@ -125,15 +162,15 @@ function displayCart() {
     var minusButton =
       cartArray[i].count > 1
         ? "<button class='minus-item input-group-addon btn btn-primary' data-sku='" +
-        cartArray[i].sku +
-        "' data-name='" +
-        cartArray[i].name +
-        "'>-</button>"
+          cartArray[i].sku +
+          "' data-name='" +
+          cartArray[i].name +
+          "'>-</button>"
         : "<button class='delete-item btn btn-danger' data-sku='" +
-        cartArray[i].sku +
-        "' data-name='" +
-        cartArray[i].name +
-        "'><i class='fa fa-trash'></i></button>";
+          cartArray[i].sku +
+          "' data-name='" +
+          cartArray[i].name +
+          "'><i class='fa fa-trash'></i></button>";
     output +=
       "<tr>" +
       "<td class='cartTd'>" +
@@ -197,19 +234,19 @@ $(".show-cart").on("change", ".item-count", function (event) {
 // Initial display of cart
 displayCart();
 
-$('.checkoutBtn').click(function() {
-  $('#cart').modal('hide');
+$(".checkoutBtn").click(function () {
+  $("#cart").modal("hide");
   return;
 });
 
 function sendEmail() {
   $(".total-cart").html(shoppingCart.totalCart());
 
-  var form = $('#emailForm');
+  var form = $("#emailForm");
 
   var cartList = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
-  var customerName = form.find('#name').val();
-  var phoneNumber = form.find('#number').val();
+  var customerName = form.find("#name").val();
+  var phoneNumber = form.find("#number").val();
   console.log(cartList);
   console.log(customerName);
   console.log(phoneNumber);
@@ -233,40 +270,47 @@ function sendEmail() {
   var currentDate = new Date().toLocaleDateString();
 
   // Create a div element for customer info
-  var customerInfoDiv = document.createElement('div');
-  customerInfoDiv.innerHTML = '<p>Customer Name: ' + customerName + '</p>' +
-    '<p>Phone Number: ' + phoneNumber + '</p>' +
-    '<p>Date: ' + currentDate + '</p>'
-    '<p>Total Count: ' + shoppingCart.totalCount() + '</p>';
+  var customerInfoDiv = document.createElement("div");
+  customerInfoDiv.innerHTML =
+    "<p>Customer Name: " +
+    customerName +
+    "</p>" +
+    "<p>Phone Number: " +
+    phoneNumber +
+    "</p>" +
+    "<p>Date: " +
+    currentDate +
+    "</p>";
+  "<p>Total Count: " + shoppingCart.totalCount() + "</p>";
 
   // Create a table element
-  var table = document.createElement('table');
-  table.style.borderCollapse = 'collapse';
-  table.style.width = '100%';
+  var table = document.createElement("table");
+  table.style.borderCollapse = "collapse";
+  table.style.width = "100%";
 
-  var headerRow = document.createElement('tr');
+  var headerRow = document.createElement("tr");
 
-  var headers = ['SKU', 'Name', 'Price', 'Count'];
+  var headers = ["SKU", "Name", "Price", "Count"];
 
   headers.forEach(function (headerText) {
-    var headerCell = document.createElement('th');
-    headerCell.style.border = '1px solid black';
-    headerCell.style.padding = '8px';
+    var headerCell = document.createElement("th");
+    headerCell.style.border = "1px solid black";
+    headerCell.style.padding = "8px";
     headerCell.textContent = headerText;
     headerRow.appendChild(headerCell);
   });
 
   table.appendChild(headerRow);
 
-  var tbody = document.createElement('tbody');
+  var tbody = document.createElement("tbody");
 
   cartList.forEach(function (product) {
-    var row = document.createElement('tr');
+    var row = document.createElement("tr");
 
     for (var key in product) {
-      var cell = document.createElement('td');
-      cell.style.border = '1px solid black';
-      cell.style.padding = '8px';
+      var cell = document.createElement("td");
+      cell.style.border = "1px solid black";
+      cell.style.padding = "8px";
       cell.textContent = product[key];
       row.appendChild(cell);
     }
@@ -283,20 +327,19 @@ function sendEmail() {
     Host: "smtp.elasticemail.com",
     Username: "vvariamartt@gmail.com",
     Password: "7171C1284341CEB6F0AA7C24F80761EAD45A",
-    To: 'ismailyoussef25185@gmail.com, vvariamartt@gmail.com',
+    To: "ismailyoussef25185@gmail.com, vvariamartt@gmail.com",
     From: "vvariamartt@gmail.com",
     Subject: "Order Details from " + customerName,
     Body: emailContent,
-  })
-    .then(function (message) {
-      alert("Order Sent");
-    });
+  }).then(function (message) {
+    alert("Order Sent");
+  });
 }
 
 function closeOrderPopup() {
-  var form = $('#emailForm');
-  form.find('#name').val("");
-  form.find('#number').val("");
+  var form = $("#emailForm");
+  form.find("#name").val("");
+  form.find("#number").val("");
 
   var popupContainer = document.getElementById("popupOrderContainer");
   popupContainer.style.display = "none";

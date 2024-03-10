@@ -50,7 +50,7 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "dettolLiquidLavender.jpg",
-            "active": true
+            "active": false
         },
         {
             "SKU": "HC-005",
@@ -63,7 +63,7 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "DettolLemonSpray.png",
-            "active": true
+            "active": false
         },
         {
             "SKU": "HC-006",
@@ -76,7 +76,7 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "HarpicActiveFreshLemon.jpg",
-            "active": true
+            "active": false
         },
         {
             "SKU": "HC-007",
@@ -115,7 +115,7 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "DettolHandWashPurple.jpg",
-            "active": true
+            "active": false
         },
         {
             "SKU": "HC-010",
@@ -128,7 +128,7 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "DettolHandWashOriginal.jpg",
-            "active": true
+            "active": false
         },
         {
             "SKU": "HC-011",
@@ -154,6 +154,19 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "FairyBig.jpg",
+            "active": false
+        },
+        {
+            "SKU": "HC-018",
+            "Name": "Der General",
+            "Description": "1.35 L ",
+            "price": 1,
+            "currency": "$",
+            "discountedPrice": 0,
+            "packOf3Price": 0,
+            "packOf6Price": 0,
+            "packOf12Price": 0,
+            "src": "DerGeneral3L.jpg",
             "active": true
         }
     ]

@@ -25,9 +25,9 @@ $(document).ready(function () {
     window.location.href = "index.html";
   }
 
-$(".empty-div").click(function () {
-  console.log("empty-div");
-});
+  $(".empty-div").click(function () {
+    console.log("empty-div");
+  });
 
   fetch(url + fileTitle + "CareProductList.json")
     .then((response) => {
@@ -52,7 +52,7 @@ $(".empty-div").click(function () {
             '<div class="thumb">' +
             '<div class="empty-div"><input readonly type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
             product.SKU +
-            '\')"></div>' + // Empty div added here
+            "')\"></div>" + // Empty div added here
             (product.discountedPrice !== 0
               ? '<span class="price price-discount"><em>' +
                 product.currency +
@@ -71,11 +71,8 @@ $(".empty-div").click(function () {
             product.SKU +
             '\')" data-sku="' +
             product.SKU +
-            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add'
-            "</a>" +
-            "</div>" +
-            "</div>" +
-            "</div>";
+            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add';
+          "</a>" + "</div>" + "</div>" + "</div>";
           productContainer.insertAdjacentHTML("beforeend", productHTML);
         }
       });
