@@ -9,12 +9,14 @@
     <h2>Read Google Sheet Data:</h2>
     <div id="readResult"></div>
     <button onclick="readData()">Read Data</button>
+    <button onclick="readData1()">Read Data111</button>
 
     <h2>Write Google Sheet Data:</h2>
     <input type="text" id="writeInput" placeholder="Enter data to write" />
     <button onclick="authenticate()">Write Data</button>
 
     <script>
+      var filePath = "Json\test.json";
       const apiUrl = "https://sheets.googleapis.com/v4/spreadsheets/";
 
       const sheetId = "16VszPnGRiPHcFnU78eczPRI3hRJEjHbFFG3vBJUq8wM";
@@ -104,6 +106,52 @@
             resultDiv.textContent = "Error: " + error.message;
           });
       }
+
+      function readData1() {
+        const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
+        const sheetName = "Products";
+        const query = encodeURIComponent("Select *");
+        const url = `${base}&sheet=${sheetName}&tq=${query}`;
+        const data = [];
+
+        console.log("ready");
+
+        fetch(url)
+          .then((res) => res.text())
+          .then((rep) => {
+            const jsData = JSON.parse(rep.substring(47).slice(0, -2));
+            console.log(jsData);
+            const colz = [];
+            jsData.table.cols.forEach((heading) => {
+              if (heading.label) {
+                const propName = heading.label
+                  .toLowerCase()
+                  .replace(/\s/g, "_");
+                colz.push(propName);
+              }
+            });
+            jsData.table.rows.forEach((main) => {
+              if (main.c[0].v == "true") {
+                const row = {};
+                colz.forEach((ele, index) => {
+                  row[ele] = main.c[index] != null ? main.c[index].v : "";
+                });
+                data.push(row);
+              }
+            });
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }
+
+      function checkForSheetChanges() {
+        readData1();
+      }
+
+      // Set up a timer to call checkForSheetChanges every 10 seconds
+      setInterval(checkForSheetChanges, 10000);
     </script>
     <script src="https://apis.google.com/js/client.js"></script>
   </body>
