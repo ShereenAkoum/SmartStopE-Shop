@@ -17,7 +17,7 @@
     <script>
       const apiUrl = "https://sheets.googleapis.com/v4/spreadsheets/";
 
-      const sheetId = "1_qgICO7Dv80YxmN5NyfVob5bgxa_D5KoRWGTyS266qU";
+      const sheetId = "16VszPnGRiPHcFnU78eczPRI3hRJEjHbFFG3vBJUq8wM";
 
       const clientId =
         "526082832932-ddtah9a5gcsv3ket41hbeb3nmd1eeamj.apps.googleusercontent.com";
@@ -68,25 +68,32 @@
             console.error("Error writing data:", error);
           });
       }
+
       function readData() {
-        fetch(`${apiUrl}${sheetId}/values/Sheet1?key=${apiKey}`)
+        fetch(`${apiUrl}${sheetId}/values/Products?key=${apiKey}`)
           .then((response) => response.json())
           .then((data) => {
             const values = data.values;
             const resultDiv = document.getElementById("readResult");
             resultDiv.innerHTML = "";
             if (values && values.length > 0) {
-              const table = document.createElement("table");
               values.forEach((row) => {
-                const tr = document.createElement("tr");
+                console.log(row);
                 row.forEach((cell) => {
-                  const td = document.createElement("td");
-                  td.textContent = cell;
-                  tr.appendChild(td);
+                  console.log(cell);
                 });
-                table.appendChild(tr);
               });
-              resultDiv.appendChild(table);
+              // const table = document.createElement("table");
+              // values.forEach((row) => {
+              //   const tr = document.createElement("tr");
+              //   row.forEach((cell) => {
+              //     const td = document.createElement("td");
+              //     td.textContent = cell;
+              //     tr.appendChild(td);
+              //   });
+              //   table.appendChild(tr);
+              // });
+              // resultDiv.appendChild(table);
             } else {
               resultDiv.textContent = "No data found";
             }
