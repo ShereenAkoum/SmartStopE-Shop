@@ -1,8 +1,8 @@
 {
     "list": [
         {
-            "SKU": "HC-001",
-            "Name": "Persil",
+            "sku": "HC-001",
+            "name": "Persil",
             "descriptiom": "52 Caps   4 in 1",
             "price": 20,
             "currency": "$",
@@ -13,8 +13,8 @@
             "src": "persil.jpg"
         },
         {
-            "SKU": "HC-002",
-            "Name": "Persil",
+            "sku": "HC-002",
+            "name": "Persil",
             "descriptiom": "52 Caps   4 in 1",
             "price": 28,
             "currency": "$",

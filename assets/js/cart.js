@@ -124,11 +124,11 @@ var shoppingCart = (function () {
         itemCopy[p] = item[p];
       }
       itemCopy.total =
-        item.count == 3
+        (item.count == 3 && item.packOf3Price != 0 && item.packOf3Price  != "")
           ? Number(item.packOf3Price).toFixed(2)
-          : item.count == 6
+          : (item.count == 6 && item.packOf6Price != 0 && item.packOf6Price  != "")
           ? Number(item.packOf6Price).toFixed(2)
-          : item.count == 12
+          : (item.count == 12 && item.packOf12Price != 0 && item.packOf12Price  != "")
           ? Number(item.packOf12Price).toFixed(2)
           : Number(item.price * item.count).toFixed(2);
       cartCopy.push(itemCopy);
@@ -140,11 +140,11 @@ var shoppingCart = (function () {
 })();
 
 // Update the addToCart function to use shoppingCart object
-function addToCart(SKU) {
-  var selectedProduct = list.find((product) => product.SKU === SKU);
+function addToCart(sku) {
+  var selectedProduct = list.find((product) => product.sku === sku);
   shoppingCart.addItemToCart(
-    selectedProduct.SKU,
-    selectedProduct.Name,
+    selectedProduct.sku,
+    selectedProduct.name,
     selectedProduct.price,
     1,
     selectedProduct.packOf3Price,
@@ -190,7 +190,7 @@ function displayCart() {
       "' data-name='" +
       cartArray[i].name +
       "'>+</button></div></td>" +
-      "<td>" +
+      "<td class='cartItemTotal'>" +
       cartArray[i].total +
       "</td>" +
       "</tr>";
@@ -290,7 +290,7 @@ function sendEmail() {
 
   var headerRow = document.createElement("tr");
 
-  var headers = ["SKU", "Name", "Price", "Count"];
+  var headers = ["SKU", "Name",  "Count" ,"Price"];
 
   headers.forEach(function (headerText) {
     var headerCell = document.createElement("th");

@@ -56,7 +56,7 @@ function getProducts(){
           ');">' +
           '<div class="thumb">' +
           '<div class="empty-div"><input readonly type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
-          product.SKU +
+          product.sku +
           "')\"></div>" + // Empty div added here
           (product.discountedPrice !== 0
             ? '<span class="price price-discount"><em>' +
@@ -73,9 +73,9 @@ function getProducts(){
           "</div>" +
           '<div class="down-content">' +
           "<a onclick=\"addToCart('" +
-          product.SKU +
+          product.sku +
           '\')" data-sku="' +
-          product.SKU +
+          product.sku +
           '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add';
         "</a>" + "</div>" + "</div>" + "</div>";
         productContainer.insertAdjacentHTML("beforeend", productHTML);
@@ -87,26 +87,26 @@ function getProducts(){
   });
 }
 
-function openPopup(SKU) {
+function openPopup(sku) {
   var popupContainer = document.getElementById("popupContainer");
   var popupImage = document.getElementById("popupImage");
   var popupDescription = document.getElementById("popupDescription");
 
   for (const product of list) {
-    if (product.SKU == SKU) {
+    if (product.sku == sku) {
       var Description = `
       <table class='cartTable table table-striped table-bordered'>
         <tr>
           <td class="grey-bg">SKU</td>
-          <td>${product.SKU}</td>
+          <td>${product.sku}</td>
         </tr>
         <tr>
           <td class="grey-bg">Name</td>
-          <td>${product.Name}</td>
+          <td>${product.name}</td>
         </tr>
         <tr>
         <td class="grey-bg">Description</td>
-        <td>${product.Description}</td>
+        <td>${product.descriptiom}</td>
       </tr>
         <tr>
           <td class="grey-bg">Price</td>
