@@ -133,7 +133,7 @@
         {
             "SKU": "HC-011",
             "Name": "Palmolive Hand Wash",
-            "Description": "300ml",
+            "Description": "Milk & Almond 300ml",
             "price": 1,
             "currency": "$",
             "discountedPrice": 0,
@@ -159,7 +159,7 @@
         {
             "SKU": "HC-018",
             "Name": "Der General",
-            "Description": "1.35 L ",
+            "Description": "3L+750mL",
             "price": 1,
             "currency": "$",
             "discountedPrice": 0,
@@ -167,6 +167,32 @@
             "packOf6Price": 0,
             "packOf12Price": 0,
             "src": "DerGeneral3L.jpg",
+            "active": true
+        },
+        {
+            "SKU": "HC-019",
+            "Name": "Comfort Softener",
+            "Description": "Long Lasting Fragrance Flora Soft - 3L",
+            "price": 1,
+            "currency": "$",
+            "discountedPrice": 0,
+            "packOf3Price": 0,
+            "packOf6Price": 0,
+            "packOf12Price": 0,
+            "src": "ComfortPink3L.PNG",
+            "active": true
+        },
+        {
+            "SKU": "HC-020",
+            "Name": "Persil Gel Lavender",
+            "Description": "2KG = 1L",
+            "price": 1,
+            "currency": "$",
+            "discountedPrice": 0,
+            "packOf3Price": 0,
+            "packOf6Price": 0,
+            "packOf12Price": 0,
+            "src": "PersilGelLavender1L.jpg",
             "active": true
         }
     ]

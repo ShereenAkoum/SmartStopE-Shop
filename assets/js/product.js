@@ -1,11 +1,11 @@
 var list = [];
 var fileTitle = "";
+var url = "./Json/";
 
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var categoryId = urlParams.get("categoryId");
 
-  var url = "./Json/";
   if (categoryId == 1) {
     fileTitle = "home";
     $("#categoryName").text("- Cleaning & Household");
@@ -29,58 +29,63 @@ $(document).ready(function () {
     console.log("empty-div");
   });
 
-  fetch(url + fileTitle + "CareProductList.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      var productContainer = document.getElementById("productContainer");
-      list = data.list;
-
-      list.forEach(function (product) {
-        if (product.active) {
-          var productHTML =
-            '<div class="col-lg-2 col-6">' +
-            '<div class="item product-item" style="background-image: url(assets/images/products/' +
-            fileTitle +
-            "Care/" +
-            product.src +
-            ');">' +
-            '<div class="thumb">' +
-            '<div class="empty-div"><input readonly type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
-            product.SKU +
-            "')\"></div>" + // Empty div added here
-            (product.discountedPrice !== 0
-              ? '<span class="price price-discount"><em>' +
-                product.currency +
-                product.price +
-                "</em>" +
-                product.currency +
-                product.discountedPrice +
-                "</span>"
-              : '<span class="price">' +
-                product.currency +
-                product.price +
-                "</span>") +
-            "</div>" +
-            '<div class="down-content">' +
-            "<a onclick=\"addToCart('" +
-            product.SKU +
-            '\')" data-sku="' +
-            product.SKU +
-            '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add';
-          "</a>" + "</div>" + "</div>" + "</div>";
-          productContainer.insertAdjacentHTML("beforeend", productHTML);
-        }
-      });
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-    });
+  getProducts();
+ 
 });
+
+function getProducts(){
+  fetch(url + fileTitle + "CareProductList.json")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    var productContainer = document.getElementById("productContainer");
+    list = data.list;
+
+    list.forEach(function (product) {
+      if (product.active) {
+        var productHTML =
+          '<div class="col-lg-2 col-6">' +
+          '<div class="item product-item" style="background-image: url(assets/images/products/' +
+          fileTitle +
+          "Care/" +
+          product.src +
+          ');">' +
+          '<div class="thumb">' +
+          '<div class="empty-div"><input readonly type="text" class="hidden-input" id="myInput" onclick="openPopup(\'' +
+          product.SKU +
+          "')\"></div>" + // Empty div added here
+          (product.discountedPrice !== 0
+            ? '<span class="price price-discount"><em>' +
+              product.currency +
+              product.price +
+              "</em>" +
+              product.currency +
+              product.discountedPrice +
+              "</span>"
+            : '<span class="price">' +
+              product.currency +
+              product.price +
+              "</span>") +
+          "</div>" +
+          '<div class="down-content">' +
+          "<a onclick=\"addToCart('" +
+          product.SKU +
+          '\')" data-sku="' +
+          product.SKU +
+          '" style="width:150px"><i class="fa fa-shopping-bag" style="margin-right:10px"></i>Add';
+        "</a>" + "</div>" + "</div>" + "</div>";
+        productContainer.insertAdjacentHTML("beforeend", productHTML);
+      }
+    });
+  })
+  .catch((error) => {
+    console.error("There was a problem with the fetch operation:", error);
+  });
+}
 
 function openPopup(SKU) {
   var popupContainer = document.getElementById("popupContainer");
@@ -99,6 +104,10 @@ function openPopup(SKU) {
           <td class="grey-bg">Name</td>
           <td>${product.Name}</td>
         </tr>
+        <tr>
+        <td class="grey-bg">Description</td>
+        <td>${product.Description}</td>
+      </tr>
         <tr>
           <td class="grey-bg">Price</td>
           ${
