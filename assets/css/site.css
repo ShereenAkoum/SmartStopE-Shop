@@ -20,9 +20,7 @@ body {
   overflow: hidden; /* Hide overflowing content */
 }
 
-.header-area {
-  border-bottom: 1px solid #efb611;
-}
+
 footer {
   position: fixed;
   left: 0;
@@ -40,6 +38,11 @@ footer {
 .header-area {
   display: flex;
   justify-content: center;
+  border-bottom: 1px solid #efb611;
+  position: sticky;   
+  top: 0;
+  z-index: 100;
+  background-color: #4e4e4e;
 }
 
 .header-area img {
@@ -52,6 +55,7 @@ footer {
 
 .containerTitle h2 {
   color: #efb611;
+  font-size: 19px;
 }
 
 /* @media (max-width: 992px) {
@@ -245,8 +249,10 @@ th {
   vertical-align: middle !important;
 }
 
-/* CSS for small screens */
-@media screen and (max-width: 768px) {
-
+.footerData {
+  margin-bottom: 0% !important;
 }
 
+.most-played {
+  margin-bottom: 10px;
+}
