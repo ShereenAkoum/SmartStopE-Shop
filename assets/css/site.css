@@ -108,7 +108,7 @@ footer {
     width: 60%;
   }
   .cartTd{
-    width: 173px;
+    width: 150px;
   }
 }
 
@@ -226,5 +226,8 @@ th {
 }
 
 .cartItemTotal{
+  vertical-align: middle !important;
+}
+.show-cart.table td {
   vertical-align: middle !important;
 }
