@@ -107,9 +107,25 @@ footer {
   .most-played .item .down-content a {
     width: 60%;
   }
-  .cartTd{
-    /* width: 150px; */
-  }
+    /* Make the table row flex container */
+    .show-cart tr {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    /* Set the width of the first cell to 100% */
+    .show-cart td.cartTd {
+      flex-basis: 100%;
+    }
+  
+    .cartTd{
+      border-bottom: none !important;
+      padding-bottom: 0px!important;
+    }
+    .cartItemTotal,.priceInputCart{
+      border-top: none !important;
+    }
 }
 
 .trending .item span.price.price-discount,
@@ -231,24 +247,6 @@ th {
 
 /* CSS for small screens */
 @media screen and (max-width: 768px) {
-  /* Make the table row flex container */
-  .show-cart tr {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  /* Set the width of the first cell to 100% */
-  .show-cart td.cartTd {
-    flex-basis: 100%;
-  }
 
-  .cartTd{
-    border-bottom: none !important;
-    padding-bottom: 0px!important;
-  }
-  .cartItemTotal,.priceInputCart{
-    border-top: none !important;
-  }
 }
 
