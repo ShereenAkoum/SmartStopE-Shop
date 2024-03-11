@@ -176,7 +176,7 @@ function displayCart() {
       "<td class='cartTd'>" +
       cartArray[i].name +
       "</td>" +
-      "<td><div class='input-group'>" +
+      "<td class='priceInputCart'><div class='input-group'>" +
       minusButton +
       "<input type='tel' style='width:50px' min = 1 class='item-count form-control' data-sku='" +
       cartArray[i].sku +

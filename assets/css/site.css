@@ -108,7 +108,7 @@ footer {
     width: 60%;
   }
   .cartTd{
-    width: 150px;
+    /* width: 150px; */
   }
 }
 
@@ -225,9 +225,30 @@ th {
   height: 100%;
 }
 
-.cartItemTotal{
-  vertical-align: middle !important;
-}
 .show-cart.table td {
   vertical-align: middle !important;
 }
+
+/* CSS for small screens */
+@media screen and (max-width: 768px) {
+  /* Make the table row flex container */
+  .show-cart tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Set the width of the first cell to 100% */
+  .show-cart td.cartTd {
+    flex-basis: 100%;
+  }
+
+  .cartTd{
+    border-bottom: none !important;
+    padding-bottom: 0px!important;
+  }
+  .cartItemTotal,.priceInputCart{
+    border-top: none !important;
+  }
+}
+
