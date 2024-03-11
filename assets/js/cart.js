@@ -115,6 +115,14 @@ var shoppingCart = (function () {
     return Number(totalCart.toFixed(2));
   };
 
+  obj.totalCartItems = function () {
+    var totalCartItems = 0;
+    for (var item in cart) {
+      totalCartItems += cart[item].count;
+    }
+    return Number(totalCartItems.toFixed(2));
+  };
+
   obj.listCart = function () {
     var cartCopy = [];
     for (var i in cart) {
@@ -124,13 +132,13 @@ var shoppingCart = (function () {
         itemCopy[p] = item[p];
       }
       itemCopy.total =
-        (item.count == 3 && item.packOf3Price != 0 && item.packOf3Price  != "")
+        (item.count == 3 && item.packOf3Price != 0 && item.packOf3Price != "")
           ? Number(item.packOf3Price).toFixed(2)
-          : (item.count == 6 && item.packOf6Price != 0 && item.packOf6Price  != "")
-          ? Number(item.packOf6Price).toFixed(2)
-          : (item.count == 12 && item.packOf12Price != 0 && item.packOf12Price  != "")
-          ? Number(item.packOf12Price).toFixed(2)
-          : Number(item.price * item.count).toFixed(2);
+          : (item.count == 6 && item.packOf6Price != 0 && item.packOf6Price != "")
+            ? Number(item.packOf6Price).toFixed(2)
+            : (item.count == 12 && item.packOf12Price != 0 && item.packOf12Price != "")
+              ? Number(item.packOf12Price).toFixed(2)
+              : Number(item.price * item.count).toFixed(2);
       cartCopy.push(itemCopy);
     }
     return cartCopy;
@@ -162,15 +170,15 @@ function displayCart() {
     var minusButton =
       cartArray[i].count > 1
         ? "<button class='minus-item input-group-addon btn btn-primary' data-sku='" +
-          cartArray[i].sku +
-          "' data-name='" +
-          cartArray[i].name +
-          "'>-</button>"
+        cartArray[i].sku +
+        "' data-name='" +
+        cartArray[i].name +
+        "'>-</button>"
         : "<button class='delete-item btn btn-danger' data-sku='" +
-          cartArray[i].sku +
-          "' data-name='" +
-          cartArray[i].name +
-          "'><i class='fa fa-trash'></i></button>";
+        cartArray[i].sku +
+        "' data-name='" +
+        cartArray[i].name +
+        "'><i class='fa fa-trash'></i></button>";
     output +=
       "<tr>" +
       "<td class='cartTd'>" +
@@ -196,6 +204,7 @@ function displayCart() {
       "</tr>";
   }
   $(".show-cart").html(output);
+  $(".item-cart").html(shoppingCart.totalCartItems());
   $(".total-cart").html(shoppingCart.totalCart());
   $(".total-count").html(shoppingCart.totalCount());
 }
@@ -241,6 +250,7 @@ $(".checkoutBtn").click(function () {
 
 function sendEmail() {
   $(".total-cart").html(shoppingCart.totalCart());
+  $(".item-cart").html(shoppingCart.totalCartItems());
 
   var form = $("#emailForm");
 
@@ -274,14 +284,17 @@ function sendEmail() {
   customerInfoDiv.innerHTML =
     "<p>Customer Name: " +
     customerName +
-    "</p>" +
-    "<p>Phone Number: " +
+    ", Phone Number: " +
     phoneNumber +
+    "</p>" +
+    "<p>Total Items: " +
+    shoppingCart.totalCartItems() +
+    ", Total Price: " +
+    shoppingCart.totalCart() +
     "</p>" +
     "<p>Date: " +
     currentDate +
     "</p>";
-  "<p>Total Count: " + shoppingCart.totalCount() + "</p>";
 
   // Create a table element
   var table = document.createElement("table");
@@ -290,7 +303,7 @@ function sendEmail() {
 
   var headerRow = document.createElement("tr");
 
-  var headers = ["SKU", "Name",  "Count" ,"Price"];
+  var headers = ["SKU", "Name", "Price", "Count"];
 
   headers.forEach(function (headerText) {
     var headerCell = document.createElement("th");
@@ -308,11 +321,13 @@ function sendEmail() {
     var row = document.createElement("tr");
 
     for (var key in product) {
-      var cell = document.createElement("td");
-      cell.style.border = "1px solid black";
-      cell.style.padding = "8px";
-      cell.textContent = product[key];
-      row.appendChild(cell);
+      if (key != "packOf3Price" && key != "packOf6Price" && key != "packOf12Price") {
+        var cell = document.createElement("td");
+        cell.style.border = "1px solid black";
+        cell.style.padding = "8px";
+        cell.textContent = product[key];
+        row.appendChild(cell);
+      }
     }
 
     tbody.appendChild(row);
@@ -327,12 +342,14 @@ function sendEmail() {
     Host: "smtp.elasticemail.com",
     Username: "vvariamartt@gmail.com",
     Password: "7171C1284341CEB6F0AA7C24F80761EAD45A",
-    To: "ismailyoussef25185@gmail.com, vvariamartt@gmail.com",
-    From: "vvariamartt@gmail.com",
+    To: "vvariamartt@gmail.com",
+    From: "ismailyoussef25185@gmail.com, vvariamartt@gmail.com",
     Subject: "Order Details from " + customerName,
     Body: emailContent,
   }).then(function (message) {
     alert("Order Sent");
+    sessionStorage.clear();
+    location.reload();
   });
 }
 
