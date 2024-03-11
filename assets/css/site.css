@@ -107,6 +107,9 @@ footer {
   .most-played .item .down-content a {
     width: 60%;
   }
+  .cartTd{
+    width: 173px;
+  }
 }
 
 .trending .item span.price.price-discount,
